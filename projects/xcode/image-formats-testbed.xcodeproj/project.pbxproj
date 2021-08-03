@@ -25,17 +25,24 @@
 		2BAF331526A6DC2B002D74A4 /* encode1d.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32F026A6DC2B002D74A4 /* encode1d.c */; };
 		2BAF331626A6DC2B002D74A4 /* decode3f.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32F126A6DC2B002D74A4 /* decode3f.c */; };
 		2BAF331726A6DC2B002D74A4 /* miniz.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32F326A6DC2B002D74A4 /* miniz.c */; };
+		2BAF336126AAC5E0002D74A4 /* libOpenEXR-3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336026AAC5E0002D74A4 /* libOpenEXR-3_1.a */; };
+		2BAF336426AAD383002D74A4 /* libOpenEXRCore-3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336326AAD383002D74A4 /* libOpenEXRCore-3_1.a */; };
+		2BAF336726AAD39D002D74A4 /* libIlmThread-3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336626AAD39D002D74A4 /* libIlmThread-3_1.a */; };
+		2BAF336A26AAD3BA002D74A4 /* libIex-3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336926AAD3BA002D74A4 /* libIex-3_1.a */; };
+		2BAF336D26AAD3D6002D74A4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336C26AAD3D6002D74A4 /* libz.tbd */; };
+		2BAF337026AAD458002D74A4 /* libOpenEXRUtil-3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336F26AAD458002D74A4 /* libOpenEXRUtil-3_1.a */; };
+		2BAF337326AAD547002D74A4 /* libImath-3_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF337226AAD547002D74A4 /* libImath-3_2.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2BAF329726A6D831002D74A4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -85,6 +92,26 @@
 		2BAF32F626A6DC2B002D74A4 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		2BAF32F726A6DC2B002D74A4 /* miniz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miniz.h; sourceTree = "<group>"; };
 		2BAF32F826A6DC2B002D74A4 /* tinyexr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyexr.h; sourceTree = "<group>"; };
+		2BAF332026A891D6002D74A4 /* openexr_errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_errors.h; sourceTree = "<group>"; };
+		2BAF332126A891D6002D74A4 /* openexr_encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_encode.h; sourceTree = "<group>"; };
+		2BAF332226A891D6002D74A4 /* openexr_chunkio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_chunkio.h; sourceTree = "<group>"; };
+		2BAF332326A891D6002D74A4 /* openexr_part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_part.h; sourceTree = "<group>"; };
+		2BAF332426A891D6002D74A4 /* openexr_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_debug.h; sourceTree = "<group>"; };
+		2BAF332526A891D6002D74A4 /* openexr_attr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_attr.h; sourceTree = "<group>"; };
+		2BAF332626A891D6002D74A4 /* openexr_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_context.h; sourceTree = "<group>"; };
+		2BAF332726A891D6002D74A4 /* openexr_std_attr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_std_attr.h; sourceTree = "<group>"; };
+		2BAF332826A891D6002D74A4 /* openexr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr.h; sourceTree = "<group>"; };
+		2BAF332926A891D6002D74A4 /* openexr_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_base.h; sourceTree = "<group>"; };
+		2BAF332A26A891D6002D74A4 /* openexr_conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_conf.h; sourceTree = "<group>"; };
+		2BAF332B26A891D6002D74A4 /* openexr_decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_decode.h; sourceTree = "<group>"; };
+		2BAF332C26A891D6002D74A4 /* openexr_coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openexr_coding.h; sourceTree = "<group>"; };
+		2BAF336026AAC5E0002D74A4 /* libOpenEXR-3_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libOpenEXR-3_1.a"; path = "../../src/openexr/lib/libOpenEXR-3_1.a"; sourceTree = "<group>"; };
+		2BAF336326AAD383002D74A4 /* libOpenEXRCore-3_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libOpenEXRCore-3_1.a"; path = "../../src/openexr/lib/libOpenEXRCore-3_1.a"; sourceTree = "<group>"; };
+		2BAF336626AAD39D002D74A4 /* libIlmThread-3_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libIlmThread-3_1.a"; path = "../../src/openexr/lib/libIlmThread-3_1.a"; sourceTree = "<group>"; };
+		2BAF336926AAD3BA002D74A4 /* libIex-3_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libIex-3_1.a"; path = "../../src/openexr/lib/libIex-3_1.a"; sourceTree = "<group>"; };
+		2BAF336C26AAD3D6002D74A4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2BAF336F26AAD458002D74A4 /* libOpenEXRUtil-3_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libOpenEXRUtil-3_1.a"; path = "../../src/openexr/lib/libOpenEXRUtil-3_1.a"; sourceTree = "<group>"; };
+		2BAF337226AAD547002D74A4 /* libImath-3_2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libImath-3_2.a"; path = "../../src/openexr/lib/libImath-3_2.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +119,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAF337326AAD547002D74A4 /* libImath-3_2.a in Frameworks */,
+				2BAF336D26AAD3D6002D74A4 /* libz.tbd in Frameworks */,
+				2BAF336A26AAD3BA002D74A4 /* libIex-3_1.a in Frameworks */,
+				2BAF336726AAD39D002D74A4 /* libIlmThread-3_1.a in Frameworks */,
+				2BAF336426AAD383002D74A4 /* libOpenEXRCore-3_1.a in Frameworks */,
+				2BAF336126AAC5E0002D74A4 /* libOpenEXR-3_1.a in Frameworks */,
+				2BAF337026AAD458002D74A4 /* libOpenEXRUtil-3_1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +137,7 @@
 			children = (
 				2BAF329B26A6D831002D74A4 /* src */,
 				2BAF329A26A6D831002D74A4 /* Products */,
+				2BAF332E26A89388002D74A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +152,7 @@
 		2BAF329B26A6D831002D74A4 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2BAF331C26A89183002D74A4 /* openexr */,
 				2BAF32B426A6DC2B002D74A4 /* tinyexr */,
 				2BAF32A526A6D875002D74A4 /* main.cpp */,
 			);
@@ -220,6 +256,64 @@
 				2BAF32F626A6DC2B002D74A4 /* readme.md */,
 			);
 			path = miniz;
+			sourceTree = "<group>";
+		};
+		2BAF331C26A89183002D74A4 /* openexr */ = {
+			isa = PBXGroup;
+			children = (
+				2BAF331D26A891A4002D74A4 /* include */,
+			);
+			path = openexr;
+			sourceTree = "<group>";
+		};
+		2BAF331D26A891A4002D74A4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2BAF331F26A891B9002D74A4 /* Imath */,
+				2BAF331E26A891AF002D74A4 /* OpenEXR */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		2BAF331E26A891AF002D74A4 /* OpenEXR */ = {
+			isa = PBXGroup;
+			children = (
+				2BAF332526A891D6002D74A4 /* openexr_attr.h */,
+				2BAF332926A891D6002D74A4 /* openexr_base.h */,
+				2BAF332226A891D6002D74A4 /* openexr_chunkio.h */,
+				2BAF332C26A891D6002D74A4 /* openexr_coding.h */,
+				2BAF332A26A891D6002D74A4 /* openexr_conf.h */,
+				2BAF332626A891D6002D74A4 /* openexr_context.h */,
+				2BAF332426A891D6002D74A4 /* openexr_debug.h */,
+				2BAF332B26A891D6002D74A4 /* openexr_decode.h */,
+				2BAF332126A891D6002D74A4 /* openexr_encode.h */,
+				2BAF332026A891D6002D74A4 /* openexr_errors.h */,
+				2BAF332326A891D6002D74A4 /* openexr_part.h */,
+				2BAF332726A891D6002D74A4 /* openexr_std_attr.h */,
+				2BAF332826A891D6002D74A4 /* openexr.h */,
+			);
+			path = OpenEXR;
+			sourceTree = "<group>";
+		};
+		2BAF331F26A891B9002D74A4 /* Imath */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Imath;
+			sourceTree = "<group>";
+		};
+		2BAF332E26A89388002D74A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BAF337226AAD547002D74A4 /* libImath-3_2.a */,
+				2BAF336F26AAD458002D74A4 /* libOpenEXRUtil-3_1.a */,
+				2BAF336C26AAD3D6002D74A4 /* libz.tbd */,
+				2BAF336926AAD3BA002D74A4 /* libIex-3_1.a */,
+				2BAF336626AAD39D002D74A4 /* libIlmThread-3_1.a */,
+				2BAF336326AAD383002D74A4 /* libOpenEXRCore-3_1.a */,
+				2BAF336026AAC5E0002D74A4 /* libOpenEXR-3_1.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +447,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../src/openexr/include/Imath";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../src/openexr/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -406,6 +502,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../src/openexr/include/Imath";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../src/openexr/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -425,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
