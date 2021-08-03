@@ -6,6 +6,9 @@
 #include "openexr/include/OpenEXR/ImfArray.h"
 #include "openexr/include/OpenEXR/ImfChannelList.h"
 #include "openexr/include/OpenEXR/ImfRgbaFile.h"
+#include "sokol/sokol_time.h"
+#include "xxHash/xxhash.h"
+
 
 static const char* GetComprName(Imf::Compression c)
 {
@@ -103,8 +106,10 @@ static bool TestFile(const char* filePath)
     return true;
 }
 
+
 int main()
 {
+    stm_setup();
     TestFile("graphicstests/Explosion0_01_5x5.exr");
     TestFile("graphicstests/ReflectionProbe-0.exr");
     return 0;

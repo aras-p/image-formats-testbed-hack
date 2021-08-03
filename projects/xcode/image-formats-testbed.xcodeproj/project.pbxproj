@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B9D7FFF26B920FF00564F54 /* xxhash.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D7FFE26B920FF00564F54 /* xxhash.c */; };
+		2B9D800426B9217200564F54 /* sokol_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D800226B9217200564F54 /* sokol_impl.c */; };
 		2BAF32A626A6D875002D74A4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32A526A6D875002D74A4 /* main.cpp */; };
 		2BAF32F926A6DC2B002D74A4 /* tinyexr.cc in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32B526A6DC2B002D74A4 /* tinyexr.cc */; };
 		2BAF32FA26A6DC2B002D74A4 /* encode3d.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32CC26A6DC2B002D74A4 /* encode3d.c */; };
@@ -47,6 +49,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B9D7FFD26B920FF00564F54 /* xxhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxhash.h; sourceTree = "<group>"; };
+		2B9D7FFE26B920FF00564F54 /* xxhash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xxhash.c; sourceTree = "<group>"; };
+		2B9D800226B9217200564F54 /* sokol_impl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sokol_impl.c; sourceTree = "<group>"; };
+		2B9D800326B9217200564F54 /* sokol_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sokol_time.h; sourceTree = "<group>"; };
 		2BAF329926A6D831002D74A4 /* image-formats-testbed */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "image-formats-testbed"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAF32A526A6D875002D74A4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2BAF32B526A6DC2B002D74A4 /* tinyexr.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyexr.cc; sourceTree = "<group>"; };
@@ -132,6 +138,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B9D7FFC26B920EC00564F54 /* xxHash */ = {
+			isa = PBXGroup;
+			children = (
+				2B9D7FFE26B920FF00564F54 /* xxhash.c */,
+				2B9D7FFD26B920FF00564F54 /* xxhash.h */,
+			);
+			path = xxHash;
+			sourceTree = "<group>";
+		};
+		2B9D800126B9215000564F54 /* sokol */ = {
+			isa = PBXGroup;
+			children = (
+				2B9D800226B9217200564F54 /* sokol_impl.c */,
+				2B9D800326B9217200564F54 /* sokol_time.h */,
+			);
+			path = sokol;
+			sourceTree = "<group>";
+		};
 		2BAF329026A6D831002D74A4 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +176,8 @@
 		2BAF329B26A6D831002D74A4 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2B9D800126B9215000564F54 /* sokol */,
+				2B9D7FFC26B920EC00564F54 /* xxHash */,
 				2BAF331C26A89183002D74A4 /* openexr */,
 				2BAF32B426A6DC2B002D74A4 /* tinyexr */,
 				2BAF32A526A6D875002D74A4 /* main.cpp */,
@@ -380,7 +406,9 @@
 				2BAF331226A6DC2B002D74A4 /* decode1d.c in Sources */,
 				2BAF32FD26A6DC2B002D74A4 /* encode2d.c in Sources */,
 				2BAF32F926A6DC2B002D74A4 /* tinyexr.cc in Sources */,
+				2B9D7FFF26B920FF00564F54 /* xxhash.c in Sources */,
 				2BAF32FA26A6DC2B002D74A4 /* encode3d.c in Sources */,
+				2B9D800426B9217200564F54 /* sokol_impl.c in Sources */,
 				2BAF331326A6DC2B002D74A4 /* encode2f.c in Sources */,
 				2BAF32FC26A6DC2B002D74A4 /* decode1f.c in Sources */,
 				2BAF330126A6DC2B002D74A4 /* zfp.c in Sources */,
