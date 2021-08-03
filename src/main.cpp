@@ -9,6 +9,7 @@
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
 #include <sys/stat.h>
+#include <thread>
 
 static size_t GetFileSize(const char* path)
 {
@@ -185,6 +186,9 @@ static bool TestFile(const char* filePath)
 
 int main()
 {
+    unsigned nThreads = std::thread::hardware_concurrency();
+    printf("Setting OpenEXR to %i threads\n", nThreads);
+    Imf::setGlobalThreadCount(nThreads);
     stm_setup();
     const char* kTestFiles[] = {
         "graphicstests/21_DepthBuffer.exr",
@@ -195,6 +199,8 @@ int main()
         "graphicstests/ReflectionProbe-0.exr",
         "graphicstests/ReflectionProbe-2.exr",
         "graphicstests/Treasure Island - White balanced.exr",
+        "polyhaven/lilienstein_4k.exr",
+        "polyhaven/rocks_ground_02_nor_gl_4k.exr",
         "UnityHDRI/GareoultWhiteBalanced.exr",
         "UnityHDRI/KirbyCoveWhiteBalanced.exr",
         "ACES/DigitalLAD.2048x1556.exr",
