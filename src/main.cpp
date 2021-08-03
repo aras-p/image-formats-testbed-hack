@@ -32,6 +32,8 @@ static const char* GetComprName(Imf::Compression c)
     case Imf::B44A_COMPRESSION: return "b44a";
     case Imf::DWAA_COMPRESSION: return "dwaa";
     case Imf::DWAB_COMPRESSION: return "dwab";
+    case Imf::ZSTD_COMPRESSION: return "zstd";
+    case Imf::ZFP_COMPRESSION: return "zfp";
     case Imf::NUM_COMPRESSION_METHODS: return "raw";
     default: return "<unknown>";
     }
@@ -51,11 +53,12 @@ static const char* GetPixelType(Imf::PixelType p)
 const Imf::Compression kTestCompr[] =
 {
     Imf::NUM_COMPRESSION_METHODS, // just raw bits read/write
-    Imf::NO_COMPRESSION,
-    Imf::RLE_COMPRESSION,
-    Imf::ZIPS_COMPRESSION,
-    Imf::ZIP_COMPRESSION,
-    Imf::PIZ_COMPRESSION
+    //Imf::NO_COMPRESSION,
+    //Imf::RLE_COMPRESSION,
+    //Imf::ZIPS_COMPRESSION,
+    //Imf::ZIP_COMPRESSION,
+    //Imf::PIZ_COMPRESSION,
+    Imf::ZSTD_COMPRESSION,
 };
 constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
 
