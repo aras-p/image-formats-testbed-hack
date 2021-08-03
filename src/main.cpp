@@ -6,6 +6,7 @@
 #include "openexr/include/OpenEXR/ImfArray.h"
 #include "openexr/include/OpenEXR/ImfChannelList.h"
 #include "openexr/include/OpenEXR/ImfRgbaFile.h"
+#include "openexr/include/OpenEXR/ImfStandardAttributes.h"
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
 #include <sys/stat.h>
@@ -16,27 +17,6 @@ static size_t GetFileSize(const char* path)
     struct stat st = {};
     stat(path, &st);
     return st.st_size;
-}
-
-static const char* GetComprName(Imf::Compression c)
-{
-    switch (c)
-    {
-    case Imf::NO_COMPRESSION: return "no";
-    case Imf::RLE_COMPRESSION: return "rle";
-    case Imf::ZIPS_COMPRESSION: return "zips";
-    case Imf::ZIP_COMPRESSION: return "zip";
-    case Imf::PIZ_COMPRESSION: return "piz";
-    case Imf::PXR24_COMPRESSION: return "pxr24";
-    case Imf::B44_COMPRESSION: return "b44";
-    case Imf::B44A_COMPRESSION: return "b44a";
-    case Imf::DWAA_COMPRESSION: return "dwaa";
-    case Imf::DWAB_COMPRESSION: return "dwab";
-    case Imf::ZSTD_COMPRESSION: return "zstd";
-    case Imf::ZFP_COMPRESSION: return "zfp";
-    case Imf::NUM_COMPRESSION_METHODS: return "raw";
-    default: return "<unknown>";
-    }
 }
 
 static const char* GetPixelType(Imf::PixelType p)
@@ -50,15 +30,22 @@ static const char* GetPixelType(Imf::PixelType p)
     }
 }
 
-const Imf::Compression kTestCompr[] =
+struct CompressorDesc
 {
-    Imf::NUM_COMPRESSION_METHODS, // just raw bits read/write
-    //Imf::NO_COMPRESSION,
-    //Imf::RLE_COMPRESSION,
-    //Imf::ZIPS_COMPRESSION,
-    //Imf::ZIP_COMPRESSION,
-    //Imf::PIZ_COMPRESSION,
-    Imf::ZSTD_COMPRESSION,
+    const char* name;
+    Imf::Compression cmp;
+    int level;
+};
+
+static const CompressorDesc kTestCompr[] =
+{
+    { "raw", Imf::NUM_COMPRESSION_METHODS, 0 }, // just raw bits read/write
+    { "no", Imf::NO_COMPRESSION, 0 },
+    { "rle", Imf::RLE_COMPRESSION, 0 },
+    { "zips", Imf::ZIPS_COMPRESSION, 0 },
+    { "zip", Imf::ZIP_COMPRESSION, 0 },
+    { "piz", Imf::PIZ_COMPRESSION, 0 },
+    { "zstd3", Imf::ZSTD_COMPRESSION, 3 },
 };
 constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
 
@@ -77,7 +64,7 @@ static bool TestFile(const char* filePath)
     using namespace Imf;
 
     const char* fnamePart = strrchr(filePath, '/');
-    printf("%20s: ", fnamePart ? fnamePart+1 : filePath);
+    printf("%s: ", fnamePart ? fnamePart+1 : filePath);
     
     // read the input file
     Array2D<Rgba> inPixels;
@@ -85,12 +72,11 @@ static bool TestFile(const char* filePath)
     {
         RgbaInputFile inFile(filePath);
         const Header& inHeader = inFile.header();
-        const Compression inCompr = inFile.compression();
         const ChannelList& channels = inHeader.channels();
         const auto dw = inFile.dataWindow();
         inWidth = dw.max.x - dw.min.x + 1;
         inHeight = dw.max.y - dw.min.y + 1;
-        printf("%ix%i, compr:%s ", inWidth, inHeight, GetComprName(inCompr));
+        printf("%ix%i ", inWidth, inHeight);
         for(auto it = channels.begin(), itEnd = channels.end(); it != itEnd; ++it)
             printf("%s:%s ", it.name(), GetPixelType(it.channel().type));
         printf("\n");
@@ -106,13 +92,13 @@ static bool TestFile(const char* filePath)
     // test various compression schemes
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
     {
-        Imf::Compression cmp = kTestCompr[cmpIndex];
+        const auto& cmp = kTestCompr[cmpIndex];
         const char* outFilePath = "_outfile.exr";
         double tWrite = 0;
         double tRead = 0;
         // save the file with given compressor
         uint64_t tWrite0 = stm_now();
-        if (cmp == NUM_COMPRESSION_METHODS)
+        if (cmp.cmp == NUM_COMPRESSION_METHODS)
         {
             FILE* f = fopen(outFilePath, "wb");
             fwrite(&inPixels[0][0], inWidth*inHeight, sizeof(Rgba), f);
@@ -120,13 +106,11 @@ static bool TestFile(const char* filePath)
         }
         else
         {
-            RgbaOutputFile outFile(
-                                   outFilePath, inWidth, inHeight, WRITE_RGBA,
-                                   1, // pixelAspectRatio
-                                   IMATH_NAMESPACE::V2f (0, 0), // screenWindowCenter
-                                   1, // screenWindowWidth
-                                   INCREASING_Y, // lineOrder
-                                   cmp);
+            Header outHeader(inWidth, inHeight);
+            outHeader.compression() = cmp.cmp;
+            if (cmp.cmp == ZSTD_COMPRESSION)
+                addZCompressionLevel(outHeader, cmp.level);
+            RgbaOutputFile outFile(outFilePath, outHeader);
             outFile.setFrameBuffer(&inPixels[0][0], 1, inWidth);
             outFile.writePixels(inHeight);
         }
@@ -137,7 +121,7 @@ static bool TestFile(const char* filePath)
         Array2D<Rgba> gotPixels;
         int gotWidth = 0, gotHeight = 0;
         uint64_t tRead0 = stm_now();
-        if (cmp == NUM_COMPRESSION_METHODS)
+        if (cmp.cmp == NUM_COMPRESSION_METHODS)
         {
             FILE* f = fopen(outFilePath, "rb");
             gotWidth = inWidth;
@@ -160,7 +144,7 @@ static bool TestFile(const char* filePath)
         const uint64_t gotPixelHash = XXH3_64bits(&gotPixels[0][0], gotWidth * gotHeight * sizeof(Rgba));
         if (gotPixelHash != inPixelHash)
         {
-            printf("ERROR: file did not roundtrip exactly with compression %s\n", GetComprName(cmp));
+            printf("ERROR: file did not roundtrip exactly with compression %s\n", cmp.name);
             return false;
         }
 
@@ -173,7 +157,7 @@ static bool TestFile(const char* filePath)
         double perfWrite = rawSize / (1024.0*1024.0) / tWrite;
         double perfRead = rawSize / (1024.0*1024.0) / tRead;
         printf("  %6s: %7.1f MB (%5.1f%%) W: %7.3f s (%5.0f MB/s) R: %7.3f s (%5.0f MB/s)\n",
-               GetComprName(cmp),
+               cmp.name,
                outSize/1024.0/1024.0,
                (double)outSize/(double)rawSize*100.0,
                tWrite,
@@ -210,18 +194,22 @@ int main()
         "ACES/SonyF35.StillLife.exr",
     };
     for (auto tf : kTestFiles)
-        TestFile(tf);
+    {
+        bool ok = TestFile(tf);
+        if (!ok)
+            return 1;
+    }
 
-    printf("==== Summary:\n");
+    printf("==== Summary (%i files):\n", (int)(sizeof(kTestFiles)/sizeof(kTestFiles[0])));
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
     {
-        Imf::Compression cmp = kTestCompr[cmpIndex];
+        const auto& cmp = kTestCompr[cmpIndex];
         const auto& res = s_Results[cmpIndex];
 
         double perfWrite = res.rawSize / (1024.0*1024.0) / res.tWrite;
         double perfRead = res.rawSize / (1024.0*1024.0) / res.tRead;
         printf("  %6s: %7.1f MB (%5.1f%%) W: %7.3f s (%5.0f MB/s) R: %7.3f s (%5.0f MB/s)\n",
-               GetComprName(cmp),
+               cmp.name,
                res.cmpSize/1024.0/1024.0,
                (double)res.cmpSize/(double)res.rawSize*100.0,
                res.tWrite,

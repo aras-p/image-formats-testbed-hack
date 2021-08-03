@@ -1,0 +1,47 @@
+Setting OpenEXR to 16 threads
+21_DepthBuffer.exr: 1180x1244 A:float B:float G:float R:float 
+     raw:    11.2 MB (100.0%) W:   0.026 s (  427 MB/s) R:   0.004 s ( 2612 MB/s)
+   zstd3:     0.0 MB (  0.3%) W:   0.009 s ( 1258 MB/s) R:   0.004 s ( 3048 MB/s)
+Distord_Test.exr: 256x256 A:float B:float G:float R:float 
+     raw:     0.5 MB (100.0%) W:   0.002 s (  240 MB/s) R:   0.000 s ( 1535 MB/s)
+   zstd3:     0.1 MB ( 10.6%) W:   0.002 s (  306 MB/s) R:   0.002 s (  294 MB/s)
+Explosion0_01_5x5.exr: 1024x1024 A:half B:half G:half R:half 
+     raw:     8.0 MB (100.0%) W:   0.019 s (  416 MB/s) R:   0.004 s ( 1834 MB/s)
+   zstd3:     1.6 MB ( 19.9%) W:   0.010 s (  838 MB/s) R:   0.005 s ( 1472 MB/s)
+Lightmap-0_comp_light.exr: 1024x1024 A:half B:half G:half R:half 
+     raw:     8.0 MB (100.0%) W:   0.022 s (  370 MB/s) R:   0.003 s ( 3022 MB/s)
+   zstd3:     1.9 MB ( 23.7%) W:   0.010 s (  778 MB/s) R:   0.005 s ( 1573 MB/s)
+Lightmap-1_comp_light.exr: 1024x1024 A:half B:half G:half R:half 
+     raw:     8.0 MB (100.0%) W:   0.020 s (  391 MB/s) R:   0.003 s ( 3003 MB/s)
+   zstd3:     1.3 MB ( 16.6%) W:   0.007 s ( 1121 MB/s) R:   0.006 s ( 1443 MB/s)
+ReflectionProbe-0.exr: 1536x256 A:half B:half G:half R:half 
+     raw:     3.0 MB (100.0%) W:   0.008 s (  361 MB/s) R:   0.001 s ( 2600 MB/s)
+   zstd3:     0.9 MB ( 31.1%) W:   0.008 s (  393 MB/s) R:   0.003 s ( 1020 MB/s)
+ReflectionProbe-2.exr: 1536x256 A:half B:half G:half R:half 
+     raw:     3.0 MB (100.0%) W:   0.008 s (  379 MB/s) R:   0.001 s ( 2463 MB/s)
+   zstd3:     0.8 MB ( 27.5%) W:   0.006 s (  491 MB/s) R:   0.002 s ( 1708 MB/s)
+Treasure Island - White balanced.exr: 2048x1024 B:half G:half R:half 
+     raw:    16.0 MB (100.0%) W:   0.047 s (  338 MB/s) R:   0.007 s ( 2455 MB/s)
+   zstd3:     6.7 MB ( 41.8%) W:   0.025 s (  631 MB/s) R:   0.007 s ( 2259 MB/s)
+lilienstein_4k.exr: 4096x2048 B:float G:float R:float 
+     raw:    64.0 MB (100.0%) W:   0.160 s (  401 MB/s) R:   0.024 s ( 2707 MB/s)
+   zstd3:    19.8 MB ( 31.0%) W:   0.080 s (  805 MB/s) R:   0.022 s ( 2969 MB/s)
+rocks_ground_02_nor_gl_4k.exr: 4096x4096 B:half G:half R:half 
+     raw:   128.0 MB (100.0%) W:   0.310 s (  413 MB/s) R:   0.051 s ( 2489 MB/s)
+   zstd3:    62.2 MB ( 48.6%) W:   0.182 s (  703 MB/s) R:   0.037 s ( 3493 MB/s)
+GareoultWhiteBalanced.exr: 8192x4096 B:half G:half R:half 
+     raw:   256.0 MB (100.0%) W:   0.604 s (  424 MB/s) R:   0.099 s ( 2579 MB/s)
+   zstd3:    97.3 MB ( 38.0%) W:   0.309 s (  829 MB/s) R:   0.073 s ( 3493 MB/s)
+KirbyCoveWhiteBalanced.exr: 8192x4096 B:half G:half R:half 
+     raw:   256.0 MB (100.0%) W:   0.569 s (  450 MB/s) R:   0.045 s ( 5644 MB/s)
+   zstd3:    91.4 MB ( 35.7%) W:   0.295 s (  869 MB/s) R:   0.071 s ( 3598 MB/s)
+DigitalLAD.2048x1556.exr: 2048x1556 A:half B:half G:half R:half 
+     raw:    24.3 MB (100.0%) W:   0.063 s (  385 MB/s) R:   0.009 s ( 2561 MB/s)
+   zstd3:     6.8 MB ( 28.2%) W:   0.032 s (  765 MB/s) R:   0.012 s ( 2086 MB/s)
+SonyF35.StillLife.exr: 1920x1080 A:half B:half G:half R:half 
+     raw:    15.8 MB (100.0%) W:   0.040 s (  393 MB/s) R:   0.003 s ( 6237 MB/s)
+   zstd3:     8.4 MB ( 52.9%) W:   0.036 s (  438 MB/s) R:   0.013 s ( 1219 MB/s)
+==== Summary (14 files):
+     raw:   801.8 MB (100.0%) W:   1.899 s (  422 MB/s) R:   0.255 s ( 3146 MB/s)
+   zstd3:   299.3 MB ( 37.3%) W:   1.009 s (  794 MB/s) R:   0.260 s ( 3078 MB/s)
+Program ended with exit code: 0

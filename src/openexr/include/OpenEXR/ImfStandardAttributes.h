@@ -353,6 +353,9 @@ IMF_STD_ATTRIBUTE_DEF
 
 IMF_STD_ATTRIBUTE_DEF (dwaCompressionLevel, DwaCompressionLevel, float)
 
+
+IMF_STD_ATTRIBUTE_DEF (zCompressionLevel, ZCompressionLevel, int)
+
 //
 // ID Manifest
 //
