@@ -11,15 +11,31 @@
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
 #include <sys/stat.h>
+#include <sys/fcntl.h>
 #include <thread>
 #include "systeminfo.h"
 
+static void TurnOffFileCache(FILE* f)
+{
+    /*
+     //@TODO: looks like this turns off a whole bunch of caching somwhere in CRT level too, blergh
+    int fd = fileno(f);
+    int err = fcntl(fd, F_NOCACHE, 1);
+    if (err != 0)
+    {
+        throw new std::string("Argh");
+    }
+     */
+}
 
 class C_IStream : public Imf::IStream
 {
 public:
-    C_IStream (FILE *file, const char fileName[]):
-    IStream (fileName), _file (file) {}
+    C_IStream (FILE *file, const char fileName[])
+    : IStream (fileName), _file (file)
+    {
+        TurnOffFileCache(file);
+    }
     virtual bool    read (char c[/*n*/], int n);
     virtual uint64_t    tellg ();
     virtual void    seekg (uint64_t pos);
@@ -30,7 +46,11 @@ private:
 class C_OStream : public Imf::OStream
 {
 public:
-    C_OStream (FILE *file, const char fileName[]) : OStream (fileName), _file (file) {}
+    C_OStream (FILE *file, const char fileName[])
+    : OStream (fileName), _file (file)
+    {
+        TurnOffFileCache(file);
+    }
     virtual void    write (const char c[/*n*/], int n);
     virtual uint64_t    tellp ();
     virtual void    seekp (uint64_t pos);
@@ -228,6 +248,7 @@ static bool TestFile(const char* filePath)
         if (cmpType == NUM_COMPRESSION_METHODS)
         {
             FILE* f = fopen(outFilePath, "wb");
+            TurnOffFileCache(f);
             fwrite(&inPixels[0][0], inWidth*inHeight, sizeof(Rgba), f);
             fclose(f);
         }
@@ -257,6 +278,7 @@ static bool TestFile(const char* filePath)
         if (cmpType == NUM_COMPRESSION_METHODS)
         {
             FILE* f = fopen(outFilePath, "rb");
+            TurnOffFileCache(f);
             gotWidth = inWidth;
             gotHeight = inHeight;
             gotPixels.resizeErase(gotHeight, gotWidth);
