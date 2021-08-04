@@ -7,10 +7,80 @@
 #include "openexr/include/OpenEXR/ImfChannelList.h"
 #include "openexr/include/OpenEXR/ImfRgbaFile.h"
 #include "openexr/include/OpenEXR/ImfStandardAttributes.h"
+#include "openexr/include/OpenEXR/ImfIO.h"
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
 #include <sys/stat.h>
 #include <thread>
+#include "systeminfo.h"
+
+
+class C_IStream : public Imf::IStream
+{
+public:
+    C_IStream (FILE *file, const char fileName[]):
+    IStream (fileName), _file (file) {}
+    virtual bool    read (char c[/*n*/], int n);
+    virtual uint64_t    tellg ();
+    virtual void    seekg (uint64_t pos);
+    virtual void    clear ();
+private:
+    FILE *        _file;
+};
+class C_OStream : public Imf::OStream
+{
+public:
+    C_OStream (FILE *file, const char fileName[]) : OStream (fileName), _file (file) {}
+    virtual void    write (const char c[/*n*/], int n);
+    virtual uint64_t    tellp ();
+    virtual void    seekp (uint64_t pos);
+private:
+    FILE *        _file;
+};
+bool C_IStream::read (char c[/*n*/], int n)
+{
+    if (n != static_cast<int>(fread (c, 1, n, _file)))
+    {
+        // fread() failed, but the return value does not distinguish
+        // between I/O errors and end of file, so we call ferror() to
+        // determine what happened.
+        //if (ferror (_file))
+        //    IEX_NAMESPACE::throwErrnoExc();
+        //else
+            throw IEX_NAMESPACE::InputExc ("Unexpected end of file.");
+    }
+    return feof (_file);
+}
+uint64_t C_IStream::tellg ()
+{
+    return ftell (_file);
+}
+void C_IStream::seekg (uint64_t pos)
+{
+    clearerr (_file);
+    fseek (_file, static_cast<long>(pos), SEEK_SET);
+}
+void C_IStream::clear ()
+{
+    clearerr (_file);
+}
+void C_OStream::write (const char c[/*n*/], int n)
+{
+    clearerr (_file);
+    if (n != static_cast<int>(fwrite (c, 1, n, _file)))
+        //IEX_NAMESPACE::throwErrnoExc();
+        throw IEX_NAMESPACE::InputExc ("Failed to write.");
+}
+uint64_t C_OStream::tellp()
+{
+    return ftell (_file);
+}
+void C_OStream::seekp (uint64_t pos)
+{
+    clearerr (_file);
+    fseek (_file, static_cast<long>(pos), SEEK_SET);
+}
+
 
 static size_t GetFileSize(const char* path)
 {
@@ -30,22 +100,71 @@ static const char* GetPixelType(Imf::PixelType p)
     }
 }
 
-struct CompressorDesc
+struct CompressorTypeDesc
 {
     const char* name;
     Imf::Compression cmp;
+    const char* color;
+};
+
+static const CompressorTypeDesc kComprTypes[] =
+{
+    {"Raw", Imf::NUM_COMPRESSION_METHODS, "a64436"}, // 0 - just raw bits read/write
+    {"None", Imf::NO_COMPRESSION, "a64436"}, // 1, red
+    {"RLE", Imf::RLE_COMPRESSION, "dc74ff"}, // 2, purple
+    {"PIZ", Imf::PIZ_COMPRESSION, "ff9a44"}, // 3, orange
+    {"Zips", Imf::ZIPS_COMPRESSION, "046f0e"}, // 4, dark green
+    {"Zip", Imf::ZIP_COMPRESSION, "12b520"}, // 5, green
+    {"Zstd", Imf::ZSTD_COMPRESSION, "0094ef"}, // 6, blue
+};
+constexpr size_t kComprTypeCount = sizeof(kComprTypes) / sizeof(kComprTypes[0]);
+
+struct CompressorDesc
+{
+    int type;
     int level;
 };
 
 static const CompressorDesc kTestCompr[] =
 {
-    { "raw", Imf::NUM_COMPRESSION_METHODS, 0 }, // just raw bits read/write
-    { "no", Imf::NO_COMPRESSION, 0 },
-    { "rle", Imf::RLE_COMPRESSION, 0 },
-    { "zips", Imf::ZIPS_COMPRESSION, 0 },
-    { "zip", Imf::ZIP_COMPRESSION, 0 },
-    { "piz", Imf::PIZ_COMPRESSION, 0 },
-    { "zstd3", Imf::ZSTD_COMPRESSION, 3 },
+    //{ 0, 0 }, // just raw bits read/write
+    { 1, 0 }, // None
+    { 2, 0 }, // RLE
+    { 3, 0 }, // PIZ
+    { 4, 0 }, // Zips
+
+    // Zip
+#if 1
+    { 5, 0 },
+    //{ 5, 1 },
+    //{ 5, 2 },
+    //{ 5, 3 },
+    //{ 5, 4 },
+    //{ 5, 5 },
+    //{ 5, 6 }, // default
+    //{ 5, 7 },
+    //{ 5, 8 },
+    //{ 5, 9 },
+#endif
+
+    // Zstd
+#if 1
+    //{ 6, -1 },
+    //{ 6, 1 },
+    //{ 6, 2 },
+    { 6, 3 }, // default
+    //{ 6, 4 },
+    //{ 6, 5 },
+    //{ 6, 6 },
+    //{ 6, 7 },
+    //{ 6, 9 },
+    //{ 6, 11 },
+    //{ 6, 13 },
+    //{ 6, 15 },
+    //{ 6, 17 },
+    //{ 6, 19 },
+    //{ 6, 21 },
+#endif
 };
 constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
 
@@ -70,19 +189,24 @@ static bool TestFile(const char* filePath)
     Array2D<Rgba> inPixels;
     int inWidth = 0, inHeight = 0;
     {
-        RgbaInputFile inFile(filePath);
-        const Header& inHeader = inFile.header();
-        const ChannelList& channels = inHeader.channels();
-        const auto dw = inFile.dataWindow();
-        inWidth = dw.max.x - dw.min.x + 1;
-        inHeight = dw.max.y - dw.min.y + 1;
-        printf("%ix%i ", inWidth, inHeight);
-        for(auto it = channels.begin(), itEnd = channels.end(); it != itEnd; ++it)
-            printf("%s:%s ", it.name(), GetPixelType(it.channel().type));
-        printf("\n");
-        inPixels.resizeErase(inHeight, inWidth);
-        inFile.setFrameBuffer(&inPixels[0][0] - dw.min.x - dw.min.y * inWidth, 1, inWidth);
-        inFile.readPixels(dw.min.y, dw.max.y);
+        FILE* inCFile = fopen(filePath, "rb");
+        {
+            C_IStream inStream(inCFile, filePath);
+            RgbaInputFile inFile(inStream);
+            const Header& inHeader = inFile.header();
+            const ChannelList& channels = inHeader.channels();
+            const auto dw = inFile.dataWindow();
+            inWidth = dw.max.x - dw.min.x + 1;
+            inHeight = dw.max.y - dw.min.y + 1;
+            printf("%ix%i ", inWidth, inHeight);
+            for(auto it = channels.begin(), itEnd = channels.end(); it != itEnd; ++it)
+                printf("%s:%s ", it.name(), GetPixelType(it.channel().type));
+            printf("\n");
+            inPixels.resizeErase(inHeight, inWidth);
+            inFile.setFrameBuffer(&inPixels[0][0] - dw.min.x - dw.min.y * inWidth, 1, inWidth);
+            inFile.readPixels(dw.min.y, dw.max.y);
+        }
+        fclose(inCFile);
     }
 
     // compute hash of pixel data
@@ -93,12 +217,15 @@ static bool TestFile(const char* filePath)
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
     {
         const auto& cmp = kTestCompr[cmpIndex];
+        const auto cmpType = kComprTypes[cmp.type].cmp;
         const char* outFilePath = "_outfile.exr";
+        //char outFilePath[1000];
+        //sprintf(outFilePath, "_out%s-%i.exr", fnamePart+1, (int)cmpIndex);
         double tWrite = 0;
         double tRead = 0;
         // save the file with given compressor
         uint64_t tWrite0 = stm_now();
-        if (cmp.cmp == NUM_COMPRESSION_METHODS)
+        if (cmpType == NUM_COMPRESSION_METHODS)
         {
             FILE* f = fopen(outFilePath, "wb");
             fwrite(&inPixels[0][0], inWidth*inHeight, sizeof(Rgba), f);
@@ -107,12 +234,18 @@ static bool TestFile(const char* filePath)
         else
         {
             Header outHeader(inWidth, inHeight);
-            outHeader.compression() = cmp.cmp;
-            if (cmp.cmp == ZSTD_COMPRESSION)
+            outHeader.compression() = cmpType;
+            if (cmp.level != 0 && (cmpType == ZSTD_COMPRESSION || cmpType == ZIP_COMPRESSION))
                 addZCompressionLevel(outHeader, cmp.level);
-            RgbaOutputFile outFile(outFilePath, outHeader);
-            outFile.setFrameBuffer(&inPixels[0][0], 1, inWidth);
-            outFile.writePixels(inHeight);
+
+            FILE* outCFile = fopen(outFilePath, "wb");
+            {
+                C_OStream outStream(outCFile, outFilePath);
+                RgbaOutputFile outFile(outStream, outHeader);
+                outFile.setFrameBuffer(&inPixels[0][0], 1, inWidth);
+                outFile.writePixels(inHeight);
+            }
+            fclose(outCFile);
         }
         tWrite = stm_sec(stm_since(tWrite0));
         size_t outSize = GetFileSize(outFilePath);
@@ -121,7 +254,7 @@ static bool TestFile(const char* filePath)
         Array2D<Rgba> gotPixels;
         int gotWidth = 0, gotHeight = 0;
         uint64_t tRead0 = stm_now();
-        if (cmp.cmp == NUM_COMPRESSION_METHODS)
+        if (cmpType == NUM_COMPRESSION_METHODS)
         {
             FILE* f = fopen(outFilePath, "rb");
             gotWidth = inWidth;
@@ -132,19 +265,24 @@ static bool TestFile(const char* filePath)
         }
         else
         {
-            RgbaInputFile gotFile(outFilePath);
-            const auto dw = gotFile.dataWindow();
-            gotWidth = dw.max.x - dw.min.x + 1;
-            gotHeight = dw.max.y - dw.min.y + 1;
-            gotPixels.resizeErase(gotHeight, gotWidth);
-            gotFile.setFrameBuffer(&gotPixels[0][0] - dw.min.x - dw.min.y * gotWidth, 1, gotWidth);
-            gotFile.readPixels(dw.min.y, dw.max.y);
+            FILE* gotCFile = fopen(outFilePath, "rb");
+            {
+                C_IStream gotStream(gotCFile, outFilePath);
+                RgbaInputFile gotFile(gotStream);
+                const auto dw = gotFile.dataWindow();
+                gotWidth = dw.max.x - dw.min.x + 1;
+                gotHeight = dw.max.y - dw.min.y + 1;
+                gotPixels.resizeErase(gotHeight, gotWidth);
+                gotFile.setFrameBuffer(&gotPixels[0][0] - dw.min.x - dw.min.y * gotWidth, 1, gotWidth);
+                gotFile.readPixels(dw.min.y, dw.max.y);
+            }
+            fclose(gotCFile);
         }
         tRead = stm_sec(stm_since(tRead0));
         const uint64_t gotPixelHash = XXH3_64bits(&gotPixels[0][0], gotWidth * gotHeight * sizeof(Rgba));
         if (gotPixelHash != inPixelHash)
         {
-            printf("ERROR: file did not roundtrip exactly with compression %s\n", cmp.name);
+            printf("ERROR: file did not roundtrip exactly with compression %s\n", kComprTypes[cmp.type].name);
             return false;
         }
 
@@ -154,6 +292,7 @@ static bool TestFile(const char* filePath)
         res.tRead += tRead;
         res.tWrite += tWrite;
         
+        /*
         double perfWrite = rawSize / (1024.0*1024.0) / tWrite;
         double perfRead = rawSize / (1024.0*1024.0) / tRead;
         printf("  %6s: %7.1f MB (%5.1f%%) W: %7.3f s (%5.0f MB/s) R: %7.3f s (%5.0f MB/s)\n",
@@ -164,16 +303,149 @@ static bool TestFile(const char* filePath)
                perfWrite,
                tRead,
                perfRead);
+         */
         remove(outFilePath);
     }
     
     return true;
 }
 
+static void WriteReportRow(FILE* fout, uint64_t gotTypeMask, size_t cmpIndex, double xval, double yval)
+{
+    const int cmpLevel = kTestCompr[cmpIndex].level;
+    const size_t typeIndex = kTestCompr[cmpIndex].type;
+    const char* cmpName = kComprTypes[typeIndex].name;
+
+    for (size_t ii = 0; ii < typeIndex; ++ii)
+    {
+        if ((gotTypeMask & (1ull<<ii)) == 0)
+            continue;
+        fprintf(fout, ",null,null");
+    }
+    fprintf(fout, ",%.2f,'", yval);
+    if (cmpLevel != 0)
+        fprintf(fout, "%s%i", cmpName, cmpLevel);
+    else
+        fprintf(fout, "%s", cmpName);
+    fprintf(fout, ": %.3f ratio, %.1f MB/s'", xval, yval);
+    for (size_t ii = typeIndex+1; ii < kComprTypeCount; ++ii)
+    {
+        if ((gotTypeMask & (1ull<<ii)) == 0)
+            continue;
+        fprintf(fout, ",null,null");
+    }
+}
+
+
+static void WriteReportFile(int threadCount, int fileCount, size_t fullSize)
+{
+    std::string curTime = sysinfo_getcurtime();
+    std::string outName = curTime + ".html";
+    FILE* fout = fopen(outName.c_str(), "wb");
+    fprintf(fout,
+R"(<script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+<center style='font-family: Arial;'>
+<p><b>EXR compression ratio vs throughput</b>, %i files (%.1fMB) <span style='color: #ccc'>%s</span</p>
+<div style='border: 1px solid #ccc;'>
+<div id='chart_w' style='width: 640px; height: 640px; display:inline-block;'></div>
+<div id='chart_r' style='width: 640px; height: 640px; display:inline-block;'></div>
+</div>
+<p>%s, %s, %i threads</p>
+<script type='text/javascript'>
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+var dw = new google.visualization.DataTable();
+var dr = new google.visualization.DataTable();
+dw.addColumn('number', 'Ratio');
+dr.addColumn('number', 'Ratio');
+)",
+            fileCount, fullSize/1024.0/1024.0, curTime.c_str(),
+            sysinfo_getplatform().c_str(), sysinfo_getcpumodel().c_str(), threadCount);
+
+    uint64_t gotCmpTypeMask = 0;
+    for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
+    {
+        gotCmpTypeMask |= 1ull << kTestCompr[cmpIndex].type;
+    }
+
+    for (size_t cmpType = 0; cmpType < kComprTypeCount; ++cmpType)
+    {
+        if ((gotCmpTypeMask & (1ull << cmpType)) == 0)
+            continue;
+        const auto& cmp = kComprTypes[cmpType];
+        fprintf(fout,
+R"(dw.addColumn('number', '%s'); dw.addColumn({type:'string', role:'tooltip'});
+dr.addColumn('number', '%s'); dr.addColumn({type:'string', role:'tooltip'});
+)", cmp.name, cmp.name);
+    }
+    fprintf(fout, "dw.addRows([\n");
+    for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
+    {
+        const auto& res = s_Results[cmpIndex];
+        double ratio = (double)res.rawSize/(double)res.cmpSize;
+        fprintf(fout, "[%.3f", ratio);
+        double perf = res.rawSize / (1024.0*1024.0) / res.tWrite;
+        WriteReportRow(fout, gotCmpTypeMask, cmpIndex, ratio, perf);
+        fprintf(fout, "]%s\n", cmpIndex == kTestComprCount-1 ? "" : ",");
+    }
+    fprintf(fout, "]);\n");
+    fprintf(fout, "dr.addRows([\n");
+    for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
+    {
+        const auto& res = s_Results[cmpIndex];
+        double ratio = (double)res.rawSize/(double)res.cmpSize;
+        fprintf(fout, "[%.3f", ratio);
+        double perf = res.rawSize / (1024.0*1024.0) / res.tRead;
+        WriteReportRow(fout, gotCmpTypeMask, cmpIndex, ratio, perf);
+        fprintf(fout, "]%s\n", cmpIndex == kTestComprCount-1 ? "" : ",");
+    }
+    fprintf(fout, "]);\n");
+
+    fprintf(fout,
+R"(var options = {
+    title: 'Writing',
+    pointSize: 18,
+    hAxis: {title: 'Compression ratio', viewWindow: {min:1.0,max:4.0}},
+    vAxis: {title: 'Writing, MB/s', viewWindow: {min:0, max:1000}},
+    chartArea: {left:60, right:10, top:50, bottom:50},
+    legend: {position: 'top'},
+    colors: [
+)");
+    bool firstCol = true;
+    for (size_t cmpType = 0; cmpType < kComprTypeCount; ++cmpType)
+    {
+        if ((gotCmpTypeMask & (1ull << cmpType)) == 0)
+            continue;
+        if (!firstCol)
+            fprintf(fout, ",");
+        firstCol = false;
+        const auto& cmp = kComprTypes[cmpType];
+        fprintf(fout, "'#%s'", cmp.color);
+    }
+
+    fprintf(fout,
+R"(]
+};
+var chw = new google.visualization.ScatterChart(document.getElementById('chart_w'));
+chw.draw(dw, options);
+
+options.title = 'Reading';
+options.vAxis.title = 'Reading, MB/s';
+options.vAxis.viewWindow.max = 4000;
+var chr = new google.visualization.ScatterChart(document.getElementById('chart_r'));
+chr.draw(dr, options);
+}
+</script>
+)");
+    
+    fclose(fout);
+}
 
 int main()
 {
     unsigned nThreads = std::thread::hardware_concurrency();
+    //nThreads = 0;
     printf("Setting OpenEXR to %i threads\n", nThreads);
     Imf::setGlobalThreadCount(nThreads);
     stm_setup();
@@ -186,10 +458,16 @@ int main()
         "graphicstests/ReflectionProbe-0.exr",
         "graphicstests/ReflectionProbe-2.exr",
         "graphicstests/Treasure Island - White balanced.exr",
-        "polyhaven/lilienstein_4k.exr",
-        "polyhaven/rocks_ground_02_nor_gl_4k.exr",
-        "UnityHDRI/GareoultWhiteBalanced.exr",
-        "UnityHDRI/KirbyCoveWhiteBalanced.exr",
+        
+        //"polyhaven/lilienstein_4k.exr",
+        //"polyhaven/rocks_ground_02_nor_gl_4k.exr",
+        //"blender/lone-monk.exr",
+        //"blender/monster_under_the_bed.exr",
+        //"houdini/AdrianA1.exr",
+        //"houdini/AdrianC1.exr",
+        //"UnityHDRI/GareoultWhiteBalanced.exr",
+        //"UnityHDRI/KirbyCoveWhiteBalanced.exr",
+        
         "ACES/DigitalLAD.2048x1556.exr",
         "ACES/SonyF35.StillLife.exr",
     };
@@ -200,7 +478,9 @@ int main()
             return 1;
     }
 
-    printf("==== Summary (%i files):\n", (int)(sizeof(kTestFiles)/sizeof(kTestFiles[0])));
+    int fileCount = (int)(sizeof(kTestFiles)/sizeof(kTestFiles[0]));
+    WriteReportFile(nThreads, fileCount, s_Results[0].rawSize);
+    printf("==== Summary (%i files):\n", fileCount);
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
     {
         const auto& cmp = kTestCompr[cmpIndex];
@@ -208,10 +488,10 @@ int main()
 
         double perfWrite = res.rawSize / (1024.0*1024.0) / res.tWrite;
         double perfRead = res.rawSize / (1024.0*1024.0) / res.tRead;
-        printf("  %6s: %7.1f MB (%5.1f%%) W: %7.3f s (%5.0f MB/s) R: %7.3f s (%5.0f MB/s)\n",
-               cmp.name,
+        printf("  %6s: %7.1f MB (%4.2fx) W: %6.3f s (%5.0f MB/s) R: %6.3f s (%5.0f MB/s)\n",
+               kComprTypes[cmp.type].name,
                res.cmpSize/1024.0/1024.0,
-               (double)res.cmpSize/(double)res.rawSize*100.0,
+               (double)res.rawSize/(double)res.cmpSize,
                res.tWrite,
                perfWrite,
                res.tRead,
