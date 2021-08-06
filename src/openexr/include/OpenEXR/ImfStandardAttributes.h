@@ -30,6 +30,7 @@
 #include "ImfEnvmapAttribute.h"
 #include "ImfDeepImageStateAttribute.h"
 #include "ImfFloatAttribute.h"
+#include "ImfIntAttribute.h"
 #include "ImfKeyCodeAttribute.h"
 #include "ImfMatrixAttribute.h"
 #include "ImfRationalAttribute.h"
@@ -353,8 +354,14 @@ IMF_STD_ATTRIBUTE_DEF
 
 IMF_STD_ATTRIBUTE_DEF (dwaCompressionLevel, DwaCompressionLevel, float)
 
+//
+// zipCompressionLevel -- sets the quality level (1-9) for images
+// compressed with ZIP or ZIPS method.
+//
 
-IMF_STD_ATTRIBUTE_DEF (zCompressionLevel, ZCompressionLevel, int)
+IMF_STD_ATTRIBUTE_DEF (zipCompressionLevel, ZipCompressionLevel, int)
+
+IMF_STD_ATTRIBUTE_DEF (zstdCompressionLevel, ZstdCompressionLevel, int)
 
 //
 // ID Manifest

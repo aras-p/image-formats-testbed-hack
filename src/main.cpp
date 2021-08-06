@@ -15,6 +15,78 @@
 #include <thread>
 #include "systeminfo.h"
 
+const int kRunCount = 4;
+
+struct CompressorTypeDesc
+{
+    const char* name;
+    Imf::Compression cmp;
+    const char* color;
+    int large;
+};
+
+static const CompressorTypeDesc kComprTypes[] =
+{
+    {"Raw",     Imf::NUM_COMPRESSION_METHODS,   "a64436", 1}, // 0 - just raw bits read/write
+    {"None",    Imf::NO_COMPRESSION,            "a64436", 1}, // 1, red
+    {"RLE",     Imf::RLE_COMPRESSION,           "dc74ff", 0}, // 2, purple
+    {"PIZ",     Imf::PIZ_COMPRESSION,           "ff9a44", 0}, // 3, orange
+    {"Zips",    Imf::ZIPS_COMPRESSION,          "046f0e", 0}, // 4, dark green
+    {"Zip",     Imf::ZIP_COMPRESSION,           "12b520", 0}, // 5, green
+    {"Zstd",    Imf::ZSTD_COMPRESSION,          "0094ef", 1}, // 6, blue
+};
+constexpr size_t kComprTypeCount = sizeof(kComprTypes) / sizeof(kComprTypes[0]);
+
+struct CompressorDesc
+{
+    int type;
+    int level;
+};
+
+static const CompressorDesc kTestCompr[] =
+{
+    //{ 0, 0 }, // just raw bits read/write
+    { 1, 0 }, // None
+    { 2, 0 }, // RLE
+    { 3, 0 }, // PIZ
+    { 4, 0 }, // Zips
+
+    // Zip
+#if 1
+    //{ 5, 0 },
+    //{ 5, 1 },
+    //{ 5, 2 },
+    //{ 5, 3 },
+    { 5, 4 },
+    //{ 5, 5 },
+    //{ 5, 6 }, // default
+    //{ 5, 7 },
+    //{ 5, 8 },
+    //{ 5, 9 },
+#endif
+
+    // Zstd
+#if 1
+    //{ 6, -1 },
+    //{ 6, 1 },
+    //{ 6, 2 },
+    { 6, 3 }, // default
+    //{ 6, 4 },
+    //{ 6, 5 },
+    //{ 6, 6 },
+    //{ 6, 7 },
+    //{ 6, 9 },
+    //{ 6, 11 },
+    //{ 6, 13 },
+    //{ 6, 15 },
+    //{ 6, 17 },
+    //{ 6, 19 },
+    //{ 6, 21 },
+#endif
+};
+constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
+
+
 static void TurnOffFileCache(FILE* f)
 {
     /*
@@ -101,7 +173,6 @@ void C_OStream::seekp (uint64_t pos)
     fseek (_file, static_cast<long>(pos), SEEK_SET);
 }
 
-
 static size_t GetFileSize(const char* path)
 {
     struct stat st = {};
@@ -120,73 +191,6 @@ static const char* GetPixelType(Imf::PixelType p)
     }
 }
 
-struct CompressorTypeDesc
-{
-    const char* name;
-    Imf::Compression cmp;
-    const char* color;
-};
-
-static const CompressorTypeDesc kComprTypes[] =
-{
-    {"Raw", Imf::NUM_COMPRESSION_METHODS, "a64436"}, // 0 - just raw bits read/write
-    {"None", Imf::NO_COMPRESSION, "a64436"}, // 1, red
-    {"RLE", Imf::RLE_COMPRESSION, "dc74ff"}, // 2, purple
-    {"PIZ", Imf::PIZ_COMPRESSION, "ff9a44"}, // 3, orange
-    {"Zips", Imf::ZIPS_COMPRESSION, "046f0e"}, // 4, dark green
-    {"Zip", Imf::ZIP_COMPRESSION, "12b520"}, // 5, green
-    {"Zstd", Imf::ZSTD_COMPRESSION, "0094ef"}, // 6, blue
-};
-constexpr size_t kComprTypeCount = sizeof(kComprTypes) / sizeof(kComprTypes[0]);
-
-struct CompressorDesc
-{
-    int type;
-    int level;
-};
-
-static const CompressorDesc kTestCompr[] =
-{
-    //{ 0, 0 }, // just raw bits read/write
-    { 1, 0 }, // None
-    { 2, 0 }, // RLE
-    { 3, 0 }, // PIZ
-    { 4, 0 }, // Zips
-
-    // Zip
-#if 1
-    { 5, 0 },
-    //{ 5, 1 },
-    //{ 5, 2 },
-    //{ 5, 3 },
-    //{ 5, 4 },
-    //{ 5, 5 },
-    //{ 5, 6 }, // default
-    //{ 5, 7 },
-    //{ 5, 8 },
-    //{ 5, 9 },
-#endif
-
-    // Zstd
-#if 1
-    //{ 6, -1 },
-    //{ 6, 1 },
-    //{ 6, 2 },
-    { 6, 3 }, // default
-    //{ 6, 4 },
-    //{ 6, 5 },
-    //{ 6, 6 },
-    //{ 6, 7 },
-    //{ 6, 9 },
-    //{ 6, 11 },
-    //{ 6, 13 },
-    //{ 6, 15 },
-    //{ 6, 17 },
-    //{ 6, 19 },
-    //{ 6, 21 },
-#endif
-};
-constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
 
 struct ComprResult
 {
@@ -195,10 +199,11 @@ struct ComprResult
     double tRead = 0;
     double tWrite = 0;
 };
-static ComprResult s_Results[kTestComprCount];
+static ComprResult s_ResultRuns[kTestComprCount][kRunCount];
+static ComprResult s_Result[kTestComprCount];
 
 
-static bool TestFile(const char* filePath)
+static bool TestFile(const char* filePath, int runIndex)
 {
     using namespace Imf;
 
@@ -256,8 +261,13 @@ static bool TestFile(const char* filePath)
         {
             Header outHeader(inWidth, inHeight);
             outHeader.compression() = cmpType;
-            if (cmp.level != 0 && (cmpType == ZSTD_COMPRESSION || cmpType == ZIP_COMPRESSION))
-                addZCompressionLevel(outHeader, cmp.level);
+            if (cmp.level != 0)
+            {
+                if (cmpType == ZIP_COMPRESSION)
+                    addZipCompressionLevel(outHeader, cmp.level);
+                if (cmpType == ZSTD_COMPRESSION)
+                    addZstdCompressionLevel(outHeader, cmp.level);
+            }
 
             FILE* outCFile = fopen(outFilePath, "wb");
             {
@@ -272,6 +282,10 @@ static bool TestFile(const char* filePath)
         size_t outSize = GetFileSize(outFilePath);
         
         // read the file back
+        int purgeVal = system("purge");
+        if (purgeVal != 0)
+            printf("WARN: failed to purge\n");
+        
         Array2D<Rgba> gotPixels;
         int gotWidth = 0, gotHeight = 0;
         uint64_t tRead0 = stm_now();
@@ -308,7 +322,7 @@ static bool TestFile(const char* filePath)
             return false;
         }
 
-        auto& res = s_Results[cmpIndex];
+        auto& res = s_ResultRuns[cmpIndex][runIndex];
         res.rawSize += rawSize;
         res.cmpSize += outSize;
         res.tRead += tRead;
@@ -404,7 +418,7 @@ dr.addColumn('number', '%s'); dr.addColumn({type:'string', role:'tooltip'});
     fprintf(fout, "dw.addRows([\n");
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
     {
-        const auto& res = s_Results[cmpIndex];
+        const auto& res = s_Result[cmpIndex];
         double ratio = (double)res.rawSize/(double)res.cmpSize;
         fprintf(fout, "[%.3f", ratio);
         double perf = res.rawSize / (1024.0*1024.0) / res.tWrite;
@@ -415,7 +429,7 @@ dr.addColumn('number', '%s'); dr.addColumn({type:'string', role:'tooltip'});
     fprintf(fout, "dr.addRows([\n");
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
     {
-        const auto& res = s_Results[cmpIndex];
+        const auto& res = s_Result[cmpIndex];
         double ratio = (double)res.rawSize/(double)res.cmpSize;
         fprintf(fout, "[%.3f", ratio);
         double perf = res.rawSize / (1024.0*1024.0) / res.tRead;
@@ -428,6 +442,18 @@ dr.addColumn('number', '%s'); dr.addColumn({type:'string', role:'tooltip'});
 R"(var options = {
     title: 'Writing',
     pointSize: 18,
+    series: {
+)");
+    int seriesIdx = 0;
+    for (size_t cmpType = 0; cmpType < kComprTypeCount; ++cmpType)
+    {
+        if ((gotCmpTypeMask & (1ull<<cmpType)) == 0)
+            continue;
+        fprintf(fout, "        %i: {pointSize: %i},\n", seriesIdx, kComprTypes[cmpType].large ? 18 : 8);
+        ++seriesIdx;
+    }
+    fprintf(fout,
+R"(        100:{}},
     hAxis: {title: 'Compression ratio', viewWindow: {min:1.0,max:4.0}},
     vAxis: {title: 'Writing, MB/s', viewWindow: {min:0, max:1000}},
     chartArea: {left:60, right:10, top:50, bottom:50},
@@ -454,7 +480,7 @@ chw.draw(dw, options);
 
 options.title = 'Reading';
 options.vAxis.title = 'Reading, MB/s';
-options.vAxis.viewWindow.max = 4000;
+options.vAxis.viewWindow.max = 2500;
 var chr = new google.visualization.ScatterChart(document.getElementById('chart_r'));
 chr.draw(dr, options);
 }
@@ -472,6 +498,7 @@ int main()
     Imf::setGlobalThreadCount(nThreads);
     stm_setup();
     const char* kTestFiles[] = {
+#if 1
         "graphicstests/21_DepthBuffer.exr",
         "graphicstests/Distord_Test.exr",
         "graphicstests/Explosion0_01_5x5.exr",
@@ -480,33 +507,75 @@ int main()
         "graphicstests/ReflectionProbe-0.exr",
         "graphicstests/ReflectionProbe-2.exr",
         "graphicstests/Treasure Island - White balanced.exr",
-        
-        //"polyhaven/lilienstein_4k.exr",
-        //"polyhaven/rocks_ground_02_nor_gl_4k.exr",
-        //"blender/lone-monk.exr",
-        //"blender/monster_under_the_bed.exr",
-        //"houdini/AdrianA1.exr",
-        //"houdini/AdrianC1.exr",
-        //"UnityHDRI/GareoultWhiteBalanced.exr",
-        //"UnityHDRI/KirbyCoveWhiteBalanced.exr",
+
+        "polyhaven/lilienstein_4k.exr",
+        "polyhaven/rocks_ground_02_nor_gl_4k.exr",
+        "blender/lone-monk.exr",
+        "blender/monster_under_the_bed.exr",
+        "houdini/AdrianA1.exr",
+        "houdini/AdrianC1.exr",
+        "UnityHDRI/GareoultWhiteBalanced.exr",
+        "UnityHDRI/KirbyCoveWhiteBalanced.exr",
         
         "ACES/DigitalLAD.2048x1556.exr",
         "ACES/SonyF35.StillLife.exr",
+#else
+        "openexr-images/ScanLines/Blobbies.exr",
+        "openexr-images/ScanLines/CandleGlass.exr",
+        "openexr-images/ScanLines/Cannon.exr",
+        "openexr-images/ScanLines/Desk.exr",
+        "openexr-images/ScanLines/MtTamWest.exr",
+        "openexr-images/ScanLines/PrismsLenses.exr",
+        "openexr-images/ScanLines/StillLife.exr",
+        "openexr-images/ScanLines/Tree.exr",
+        "openexr-images/Tiles/GoldenGate.exr",
+        "openexr-images/Tiles/Ocean.exr",
+        "openexr-images/Tiles/Spirals.exr",
+#endif
     };
-    for (auto tf : kTestFiles)
+    int fileCount = (int)(sizeof(kTestFiles)/sizeof(kTestFiles[0]));
+    for (int ri = 0; ri < kRunCount; ++ri)
     {
-        bool ok = TestFile(tf);
-        if (!ok)
-            return 1;
+        printf("Run %i/%i...\n", ri+1, kRunCount);
+        for (int fi = 0; fi < fileCount; ++fi)
+        {
+            bool ok = TestFile(kTestFiles[fi], ri);
+            if (!ok)
+                return 1;
+        }
+        
+        for (int ci = 0; ci < kTestComprCount; ++ci)
+        {
+            const ComprResult& res = s_ResultRuns[ci][ri];
+            ComprResult& dst = s_Result[ci];
+            if (ri == 0)
+            {
+                dst = res;
+            }
+            else
+            {
+                if (res.cmpSize != dst.cmpSize)
+                {
+                    printf("ERROR: compressor case %i non deterministic compressed size (%zi vs %zi)\n", ci, res.cmpSize, dst.cmpSize);
+                    return 1;
+                }
+                if (res.rawSize != dst.rawSize)
+                {
+                    printf("ERROR: compressor case %i non deterministic raw size (%zi vs %zi)\n", ci, res.rawSize, dst.rawSize);
+                    return 1;
+                }
+                if (res.tRead < dst.tRead) dst.tRead = res.tRead;
+                if (res.tWrite < dst.tWrite) dst.tWrite = res.tWrite;
+            }
+        }
     }
 
-    int fileCount = (int)(sizeof(kTestFiles)/sizeof(kTestFiles[0]));
-    WriteReportFile(nThreads, fileCount, s_Results[0].rawSize);
-    printf("==== Summary (%i files):\n", fileCount);
+    WriteReportFile(nThreads, fileCount, s_Result[0].rawSize);
+    printf("==== Summary (%i files, %i runs):\n", fileCount, kRunCount);
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
     {
         const auto& cmp = kTestCompr[cmpIndex];
-        const auto& res = s_Results[cmpIndex];
+        const auto& res = s_Result[cmpIndex];
 
         double perfWrite = res.rawSize / (1024.0*1024.0) / res.tWrite;
         double perfRead = res.rawSize / (1024.0*1024.0) / res.tRead;
