@@ -15,48 +15,40 @@
 #include <thread>
 #include "systeminfo.h"
 
-#define IMF_HAVE_SSE4_1 1
-#define IMF_HAVE_SSE2 1
+//#define IMF_HAVE_SSE4_1 1
+//#define IMF_HAVE_SSE2 1
 
-void FilterBeforeCompression(const char* raw, size_t rawSize, char* outBuffer)
+void FilterBeforeCompression(const unsigned char* raw, size_t rawSize, unsigned char* outBuffer)
 {
-    //
-    // Reorder the pixel data.
-    //
+    // De-interleave the data and do a delta predictor
+    unsigned char *t1 = outBuffer;
+    unsigned char *t2 = outBuffer + (rawSize + 1) / 2;
+    const unsigned char *stop = raw + rawSize;
+    
+    int p1 = 128;
+    int p2 = raw[rawSize - 1 - ((rawSize&1)^1)];
+    
+    while (true)
     {
-        char *t1 = outBuffer;
-        char *t2 = outBuffer + (rawSize + 1) / 2;
-        const char *stop = raw + rawSize;
-
-        while (true)
+        if (raw < stop)
         {
-            if (raw < stop)
-            *(t1++) = *(raw++);
-            else
+            int v = int(*(raw++));
+            int d = v - p1 + (128 + 256);
+            p1 = v;
+            *(t1++) = d;
+        }
+        else
             break;
 
-            if (raw < stop)
-            *(t2++) = *(raw++);
-            else
-            break;
-        }
-    }
-
-    //
-    // Predictor.
-    //
-    {
-        unsigned char *t    = (unsigned char *) outBuffer + 1;
-        unsigned char *stop = (unsigned char *) outBuffer + rawSize;
-        int p = t[-1];
-
-        while (t < stop)
+        if (raw < stop)
         {
-            int d = int (t[0]) - p + (128 + 256);
-            p = t[0];
-            t[0] = d;
-            ++t;
+            int v = int(*(raw++));
+            int d = v - p2 + (128 + 256);
+            p2 = v;
+            *(t2++) = d;
         }
+        else
+            break;
     }
 }
 
@@ -207,10 +199,12 @@ void UnfilterAfterDecompression(char* tmpBuffer, size_t size, char* outBuffer)
 }
 
 const int kTestLength = 1024 * 256 + 13;
+//const int kTestLength = 7;
 const int kTestCount = 1000;
 unsigned char dataIn[kTestCount][kTestLength];
 static bool TestFiltering()
 {
+    srand(1);
     const int kRunCount = 1;
     for (int i = 0; i < kTestCount; ++i)
     {
@@ -228,7 +222,7 @@ static bool TestFiltering()
     {
         for (int j = 0; j < kTestCount; ++j)
         {
-            FilterBeforeCompression((char*)dataIn[j], kTestLength, (char*)dataTmp);
+            FilterBeforeCompression(dataIn[j], kTestLength, dataTmp);
             UnfilterAfterDecompression((char*)dataTmp, kTestLength, (char*)dataOut);
 #if 1
             if (memcmp(dataIn[j], dataOut, kTestLength) != 0)

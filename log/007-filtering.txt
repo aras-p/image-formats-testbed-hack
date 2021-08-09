@@ -1,5 +1,7 @@
 filter 256KB+13 bytes, 1000 times:
 
-456.0ms initial
-355.7ms + SSE2
-268.4ms + SSE4.1
+456.0ms: initial
+355.7ms: + SSE2
+268.4ms: + SSE4.1
+
+180.3ms: single pass filter (354.1ms without SSE2/SSE4.1)
