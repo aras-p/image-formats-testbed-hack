@@ -15,7 +15,236 @@
 #include <thread>
 #include "systeminfo.h"
 
-const int kRunCount = 4;
+#define IMF_HAVE_SSE4_1 1
+#define IMF_HAVE_SSE2 1
+
+void FilterBeforeCompression(const char* raw, size_t rawSize, char* outBuffer)
+{
+    //
+    // Reorder the pixel data.
+    //
+    {
+        char *t1 = outBuffer;
+        char *t2 = outBuffer + (rawSize + 1) / 2;
+        const char *stop = raw + rawSize;
+
+        while (true)
+        {
+            if (raw < stop)
+            *(t1++) = *(raw++);
+            else
+            break;
+
+            if (raw < stop)
+            *(t2++) = *(raw++);
+            else
+            break;
+        }
+    }
+
+    //
+    // Predictor.
+    //
+    {
+        unsigned char *t    = (unsigned char *) outBuffer + 1;
+        unsigned char *stop = (unsigned char *) outBuffer + rawSize;
+        int p = t[-1];
+
+        while (t < stop)
+        {
+            int d = int (t[0]) - p + (128 + 256);
+            p = t[0];
+            t[0] = d;
+            ++t;
+        }
+    }
+}
+
+
+#ifdef IMF_HAVE_SSE4_1
+
+static void
+reconstruct_sse41(char *buf, size_t outSize)
+{
+    static const size_t bytesPerChunk = sizeof(__m128i);
+    const size_t vOutSize = outSize / bytesPerChunk;
+
+    const __m128i c = _mm_set1_epi8(-128);
+    const __m128i shuffleMask = _mm_set1_epi8(15);
+
+    // The first element doesn't have its high bit flipped during compression,
+    // so it must not be flipped here.  To make the SIMD loop nice and
+    // uniform, we pre-flip the bit so that the loop will unflip it again.
+    buf[0] += -128;
+
+    __m128i *vBuf = reinterpret_cast<__m128i *>(buf);
+    __m128i vPrev = _mm_setzero_si128();
+    for (size_t i=0; i<vOutSize; ++i)
+    {
+        __m128i d = _mm_add_epi8(_mm_loadu_si128(vBuf), c);
+
+        // Compute the prefix sum of elements.
+        d = _mm_add_epi8(d, _mm_slli_si128(d, 1));
+        d = _mm_add_epi8(d, _mm_slli_si128(d, 2));
+        d = _mm_add_epi8(d, _mm_slli_si128(d, 4));
+        d = _mm_add_epi8(d, _mm_slli_si128(d, 8));
+        d = _mm_add_epi8(d, vPrev);
+
+        _mm_storeu_si128(vBuf++, d);
+
+        // Broadcast the high byte in our result to all lanes of the prev
+        // value for the next iteration.
+        vPrev = _mm_shuffle_epi8(d, shuffleMask);
+    }
+
+    unsigned char prev = _mm_extract_epi8(vPrev, 15);
+    for (size_t i=vOutSize*bytesPerChunk; i<outSize; ++i)
+    {
+        unsigned char d = prev + buf[i] - 128;
+        buf[i] = d;
+        prev = d;
+    }
+}
+
+#else
+
+static void
+reconstruct_scalar(char *buf, size_t outSize)
+{
+    unsigned char *t    = (unsigned char *) buf + 1;
+    unsigned char *stop = (unsigned char *) buf + outSize;
+
+    while (t < stop)
+    {
+        int d = int (t[-1]) + int (t[0]) - 128;
+        t[0] = d;
+        ++t;
+    }
+}
+
+#endif
+
+
+#ifdef IMF_HAVE_SSE2
+
+static void
+interleave_sse2(const char *source, size_t outSize, char *out)
+{
+    static const size_t bytesPerChunk = 2*sizeof(__m128i);
+
+    const size_t vOutSize = outSize / bytesPerChunk;
+
+    const __m128i *v1 = reinterpret_cast<const __m128i *>(source);
+    const __m128i *v2 = reinterpret_cast<const __m128i *>(source + (outSize + 1) / 2);
+    __m128i *vOut = reinterpret_cast<__m128i *>(out);
+
+    for (size_t i=0; i<vOutSize; ++i) {
+        __m128i a = _mm_loadu_si128(v1++);
+        __m128i b = _mm_loadu_si128(v2++);
+
+        __m128i lo = _mm_unpacklo_epi8(a, b);
+        __m128i hi = _mm_unpackhi_epi8(a, b);
+
+        _mm_storeu_si128(vOut++, lo);
+        _mm_storeu_si128(vOut++, hi);
+    }
+
+    const char *t1 = reinterpret_cast<const char *>(v1);
+    const char *t2 = reinterpret_cast<const char *>(v2);
+    char *sOut = reinterpret_cast<char *>(vOut);
+
+    for (size_t i=vOutSize*bytesPerChunk; i<outSize; ++i)
+    {
+        *(sOut++) = (i%2==0) ? *(t1++) : *(t2++);
+    }
+}
+
+#else
+
+static void
+interleave_scalar(const char *source, size_t outSize, char *out)
+{
+    const char *t1 = source;
+    const char *t2 = source + (outSize + 1) / 2;
+    char *s = out;
+    char *const stop = s + outSize;
+
+    while (true)
+    {
+        if (s < stop)
+            *(s++) = *(t1++);
+        else
+            break;
+
+        if (s < stop)
+            *(s++) = *(t2++);
+        else
+            break;
+    }
+}
+
+#endif
+
+void UnfilterAfterDecompression(char* tmpBuffer, size_t size, char* outBuffer)
+{
+    //
+    // Predictor.
+    //
+#ifdef IMF_HAVE_SSE4_1
+    reconstruct_sse41(tmpBuffer, size);
+#else
+    reconstruct_scalar(tmpBuffer, size);
+#endif
+
+    //
+    // Reorder the pixel data.
+    //
+#ifdef IMF_HAVE_SSE2
+    interleave_sse2(tmpBuffer, size, outBuffer);
+#else
+    interleave_scalar(tmpBuffer, size, outBuffer);
+#endif
+}
+
+const int kTestLength = 1024 * 256 + 13;
+const int kTestCount = 1000;
+unsigned char dataIn[kTestCount][kTestLength];
+static bool TestFiltering()
+{
+    const int kRunCount = 1;
+    for (int i = 0; i < kTestCount; ++i)
+    {
+        for (int j = 0; j < kTestLength; ++j)
+        {
+            dataIn[i][j] = rand()>>7;
+        }
+    }
+    
+    unsigned char dataTmp[kTestLength];
+    unsigned char dataOut[kTestLength];
+
+    uint64_t t0 = stm_now();
+    for (int i = 0; i < kRunCount; ++i)
+    {
+        for (int j = 0; j < kTestCount; ++j)
+        {
+            FilterBeforeCompression((char*)dataIn[j], kTestLength, (char*)dataTmp);
+            UnfilterAfterDecompression((char*)dataTmp, kTestLength, (char*)dataOut);
+#if 1
+            if (memcmp(dataIn[j], dataOut, kTestLength) != 0)
+            {
+                printf("Filter failed at index: %i,%i!\n", i, j);
+                return false;
+            }
+#endif
+        }
+    }
+    double ms = stm_ms(stm_since(t0));
+    printf("Filter time: %.1fms\n", ms);
+    return true;
+}
+
+const int kRunCount = 1;
 
 struct CompressorTypeDesc
 {
@@ -47,9 +276,9 @@ static const CompressorDesc kTestCompr[] =
 {
     //{ 0, 0 }, // just raw bits read/write
     { 1, 0 }, // None
-    { 2, 0 }, // RLE
-    { 3, 0 }, // PIZ
-    { 4, 0 }, // Zips
+    //{ 2, 0 }, // RLE
+    //{ 3, 0 }, // PIZ
+    //{ 4, 0 }, // Zips
 
     // Zip
 #if 1
@@ -67,21 +296,22 @@ static const CompressorDesc kTestCompr[] =
 
     // Zstd
 #if 1
+    //{ 6, -3 },
     //{ 6, -1 },
-    //{ 6, 1 },
+    { 6, 1 },
     //{ 6, 2 },
-    { 6, 3 }, // default
+    //{ 6, 3 }, // default
     //{ 6, 4 },
     //{ 6, 5 },
     //{ 6, 6 },
-    //{ 6, 7 },
-    //{ 6, 9 },
-    //{ 6, 11 },
-    //{ 6, 13 },
-    //{ 6, 15 },
-    //{ 6, 17 },
-    //{ 6, 19 },
-    //{ 6, 21 },
+    //{ 6, 8 },
+    //{ 6, 10 },
+    //{ 6, 12 },
+    //{ 6, 14 },
+    //{ 6, 16 },
+    //{ 6, 18 },
+    //{ 6, 20 },
+    //{ 6, 22 },
 #endif
 };
 constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
@@ -381,7 +611,7 @@ static void WriteReportFile(int threadCount, int fileCount, size_t fullSize)
     fprintf(fout,
 R"(<script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
 <center style='font-family: Arial;'>
-<p><b>EXR compression ratio vs throughput</b>, %i files (%.1fMB) <span style='color: #ccc'>%s</span</p>
+<p><b>EXR compression ratio vs throughput</b>, %i files (%.1fMB) <span style='color: #ccc'>%s, %i runs</span</p>
 <div style='border: 1px solid #ccc;'>
 <div id='chart_w' style='width: 640px; height: 640px; display:inline-block;'></div>
 <div id='chart_r' style='width: 640px; height: 640px; display:inline-block;'></div>
@@ -396,7 +626,7 @@ var dr = new google.visualization.DataTable();
 dw.addColumn('number', 'Ratio');
 dr.addColumn('number', 'Ratio');
 )",
-            fileCount, fullSize/1024.0/1024.0, curTime.c_str(),
+            fileCount, fullSize/1024.0/1024.0, curTime.c_str(), kRunCount,
             sysinfo_getplatform().c_str(), sysinfo_getcpumodel().c_str(), threadCount);
 
     uint64_t gotCmpTypeMask = 0;
@@ -497,6 +727,11 @@ int main()
     printf("Setting OpenEXR to %i threads\n", nThreads);
     Imf::setGlobalThreadCount(nThreads);
     stm_setup();
+    if (!TestFiltering())
+    {
+        return 1;
+    }
+    return 0;
     const char* kTestFiles[] = {
 #if 1
         "graphicstests/21_DepthBuffer.exr",
