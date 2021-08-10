@@ -15,8 +15,8 @@
 #include <thread>
 #include "systeminfo.h"
 
-//#define IMF_HAVE_SSE4_1 1
-//#define IMF_HAVE_SSE2 1
+#define IMF_HAVE_SSE4_1 1
+#define IMF_HAVE_SSE2 1
 
 void FilterBeforeCompression(const unsigned char* raw, size_t rawSize, unsigned char* outBuffer)
 {
@@ -56,7 +56,7 @@ void FilterBeforeCompression(const unsigned char* raw, size_t rawSize, unsigned 
 #ifdef IMF_HAVE_SSE4_1
 
 static void
-reconstruct_sse41(char *buf, size_t outSize)
+reconstruct_sse41(unsigned char *buf, size_t outSize)
 {
     static const size_t bytesPerChunk = sizeof(__m128i);
     const size_t vOutSize = outSize / bytesPerChunk;
@@ -101,7 +101,7 @@ reconstruct_sse41(char *buf, size_t outSize)
 #else
 
 static void
-reconstruct_scalar(char *buf, size_t outSize)
+reconstruct_scalar(unsigned char *buf, size_t outSize)
 {
     unsigned char *t    = (unsigned char *) buf + 1;
     unsigned char *stop = (unsigned char *) buf + outSize;
@@ -120,7 +120,7 @@ reconstruct_scalar(char *buf, size_t outSize)
 #ifdef IMF_HAVE_SSE2
 
 static void
-interleave_sse2(const char *source, size_t outSize, char *out)
+interleave_sse2(const unsigned char *source, size_t outSize, unsigned char *out)
 {
     static const size_t bytesPerChunk = 2*sizeof(__m128i);
 
@@ -154,12 +154,12 @@ interleave_sse2(const char *source, size_t outSize, char *out)
 #else
 
 static void
-interleave_scalar(const char *source, size_t outSize, char *out)
+interleave_scalar(const unsigned char *source, size_t outSize, unsigned char *out)
 {
-    const char *t1 = source;
-    const char *t2 = source + (outSize + 1) / 2;
-    char *s = out;
-    char *const stop = s + outSize;
+    const unsigned char *t1 = source;
+    const unsigned char *t2 = source + (outSize + 1) / 2;
+    unsigned char *s = out;
+    unsigned char *const stop = s + outSize;
 
     while (true)
     {
@@ -177,24 +177,46 @@ interleave_scalar(const char *source, size_t outSize, char *out)
 
 #endif
 
-void UnfilterAfterDecompression(char* tmpBuffer, size_t size, char* outBuffer)
+void UnfilterAfterDecompression(unsigned char* tmpBuffer, size_t size, unsigned char* outBuffer)
 {
-    //
-    // Predictor.
-    //
-#ifdef IMF_HAVE_SSE4_1
+#if defined(IMF_HAVE_SSE4_1) && defined(IMF_HAVE_SSE2)
     reconstruct_sse41(tmpBuffer, size);
-#else
+    interleave_sse2(tmpBuffer, size, outBuffer);
+#elif defined(IMF_HAVE_SSE2)
     reconstruct_scalar(tmpBuffer, size);
-#endif
-
-    //
-    // Reorder the pixel data.
-    //
-#ifdef IMF_HAVE_SSE2
     interleave_sse2(tmpBuffer, size, outBuffer);
 #else
+    reconstruct_scalar(tmpBuffer, size);
     interleave_scalar(tmpBuffer, size, outBuffer);
+
+    /*
+    // Do delta predictor decoding, and interleave the split data
+    // back into 16-bit values.
+    size_t midSize = (size + 1) / 2;
+    unsigned char *t1 = tmpBuffer;
+    unsigned char *t2 = tmpBuffer + midSize;
+    unsigned char *t3 = tmpBuffer + size;
+    
+    unsigned char *dst = outBuffer;
+    int p = 128;
+    while (t1 < t2)
+    {
+        int d = int(*(t1++));
+        int v = p + d - 128;
+        p = v;
+        *dst = v;
+        dst += 2;
+    }
+    dst = outBuffer + 1;
+    while (t1 < t3)
+    {
+        int d = int(*(t1++));
+        int v = p + d - 128;
+        p = v;
+        *dst = v;
+        dst += 2;
+    }
+     */
 #endif
 }
 
@@ -223,7 +245,7 @@ static bool TestFiltering()
         for (int j = 0; j < kTestCount; ++j)
         {
             FilterBeforeCompression(dataIn[j], kTestLength, dataTmp);
-            UnfilterAfterDecompression((char*)dataTmp, kTestLength, (char*)dataOut);
+            UnfilterAfterDecompression(dataTmp, kTestLength, dataOut);
 #if 1
             if (memcmp(dataIn[j], dataOut, kTestLength) != 0)
             {

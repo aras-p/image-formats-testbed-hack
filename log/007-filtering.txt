@@ -5,3 +5,11 @@ filter 256KB+13 bytes, 1000 times:
 268.4ms: + SSE4.1
 
 180.3ms: single pass filter (354.1ms without SSE2/SSE4.1)
+     318.7ms single pass filter+defilter, without SSE
+
+
+in:  131,117,89,24,111,181,29
+tmp: 131,86,150,46,216,35,29
+out: 131,117,89,24,111,181,29
+
+
