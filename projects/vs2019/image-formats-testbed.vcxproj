@@ -24,6 +24,17 @@
     <ClCompile Include="..\..\src\external\imath\src\Imath\ImathFun.cpp" />
     <ClCompile Include="..\..\src\external\imath\src\Imath\ImathMatrixAlgo.cpp" />
     <ClCompile Include="..\..\src\external\imath\src\Imath\ImathRandom.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexBaseExc.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexMathFloatExc.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexMathFpu.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexThrowErrnoExc.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThread.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadPool.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphore.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphoreOSX.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphorePosix.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphorePosixCompat.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphoreWin32.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAcesFile.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAttribute.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfB44Compressor.cpp" />
@@ -116,6 +127,62 @@
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\adler32.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\libdefl_adler32.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\libdefl_adler32.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)\libdefl_adler32.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)\libdefl_adler32.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\crc32.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\libdefl_crc32.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\libdefl_crc32.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)\libdefl_crc32.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)\libdefl_crc32.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_compress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_decompress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\gzip_compress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\gzip_decompress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\utils.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\x86\cpu_features.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\zlib_compress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\zlib_decompress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\debug.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\entropy_common.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\error_private.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\fse_decompress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\pool.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\threading.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\xxhash.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_common.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\fse_compress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\hist.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\huf_compress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstdmt_compress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_literals.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_sequences.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_superblock.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_double_fast.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_fast.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_lazy.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_ldm.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_opt.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\huf_decompress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_ddict.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress.c" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_block.c" />
+    <ClCompile Include="..\..\src\external\zlib\adler32.c" />
+    <ClCompile Include="..\..\src\external\zlib\compress.c" />
+    <ClCompile Include="..\..\src\external\zlib\crc32.c" />
+    <ClCompile Include="..\..\src\external\zlib\deflate.c" />
+    <ClCompile Include="..\..\src\external\zlib\infback.c" />
+    <ClCompile Include="..\..\src\external\zlib\inffast.c" />
+    <ClCompile Include="..\..\src\external\zlib\inflate.c" />
+    <ClCompile Include="..\..\src\external\zlib\inftrees.c" />
+    <ClCompile Include="..\..\src\external\zlib\trees.c" />
+    <ClCompile Include="..\..\src\external\zlib\uncompr.c" />
+    <ClCompile Include="..\..\src\external\zlib\zutil.c" />
     <ClCompile Include="..\..\src\fileio.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\sokol\sokol_impl.c" />
@@ -162,6 +229,25 @@
     <ClInclude Include="..\..\src\external\imath\src\Imath\ImathVecAlgo.h" />
     <ClInclude Include="..\..\src\external\OpenEXRConfig.h" />
     <ClInclude Include="..\..\src\external\OpenEXRConfigInternal.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\Iex.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexBaseExc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexErrnoExc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexExport.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexForward.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMacros.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathExc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathFloatExc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathFpu.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathIeeeExc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexNamespace.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexThrowErrnoExc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThread.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadExport.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadForward.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadMutex.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadNamespace.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadPool.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphore.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAcesFile.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfArray.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAttribute.h" />
@@ -275,6 +361,53 @@
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\adler32_vec_template.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\bt_matchfinder.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\cpu_features_common.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\crc32_table.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\crc32_vec_template.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\decompress_template.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_compress.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_constants.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\gzip_constants.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\hc_matchfinder.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\lib_common.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\matchfinder_common.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\unaligned.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\zlib_constants.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\bitstream.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\compiler.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\cpu.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\debug.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\error_private.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\fse.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\huf.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\mem.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\pool.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\threading.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\xxhash.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_deps.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_internal.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_trace.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\hist.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstdmt_compress.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_internal.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_literals.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_sequences.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_superblock.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_cwksp.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_double_fast.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_fast.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_lazy.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_ldm.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_ldm_geartab.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_opt.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_ddict.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_block.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_internal.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\zstd.h" />
+    <ClInclude Include="..\..\src\external\zlib\zconf.h" />
+    <ClInclude Include="..\..\src\external\zlib\zlib.h" />
     <ClInclude Include="..\..\src\fileio.h" />
     <ClInclude Include="..\..\src\sokol\sokol_time.h" />
     <ClInclude Include="..\..\src\systeminfo.h" />
@@ -354,10 +487,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -371,10 +504,10 @@
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -388,10 +521,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -405,10 +538,10 @@
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>

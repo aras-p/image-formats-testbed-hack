@@ -298,6 +298,177 @@
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.cpp">
       <Filter>external\openexr</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexBaseExc.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexMathFloatExc.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexMathFpu.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\Iex\IexThrowErrnoExc.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThread.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadPool.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphore.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphoreOSX.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphorePosix.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphorePosixCompat.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphoreWin32.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\compress.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\uncompr.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\adler32.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\crc32.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\deflate.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\infback.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\inffast.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\inflate.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\inftrees.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\trees.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zlib\zutil.c">
+      <Filter>external\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\debug.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\entropy_common.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\error_private.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\fse_decompress.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\pool.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\threading.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\xxhash.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_common.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\fse_compress.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\hist.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\huf_compress.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_literals.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_sequences.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_superblock.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_double_fast.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_fast.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_lazy.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_ldm.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_opt.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstdmt_compress.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\huf_decompress.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_ddict.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_block.c">
+      <Filter>external\zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\adler32.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\crc32.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_compress.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_decompress.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\gzip_compress.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\gzip_decompress.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\utils.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\zlib_compress.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\zlib_decompress.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\x86\cpu_features.c">
+      <Filter>external\libdeflate</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\systeminfo.h" />
@@ -764,6 +935,204 @@
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.h">
       <Filter>external\openexr</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\Iex.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexBaseExc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexErrnoExc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexExport.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexForward.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMacros.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathExc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathFloatExc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathFpu.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexMathIeeeExc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexNamespace.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\Iex\IexThrowErrnoExc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThread.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadExport.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadForward.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadMutex.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadNamespace.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadPool.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\IlmThread\IlmThreadSemaphore.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zlib\zconf.h">
+      <Filter>external\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zlib\zlib.h">
+      <Filter>external\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\zstd.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\bitstream.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\compiler.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\cpu.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\debug.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\error_private.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\fse.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\huf.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\mem.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\pool.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\threading.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\xxhash.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_deps.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_internal.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\common\zstd_trace.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\hist.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_internal.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_literals.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_sequences.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_compress_superblock.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_cwksp.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_double_fast.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_fast.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_lazy.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_ldm.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_ldm_geartab.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstd_opt.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\compress\zstdmt_compress.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_ddict.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_block.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_internal.h">
+      <Filter>external\zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\adler32_vec_template.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\bt_matchfinder.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\cpu_features_common.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\crc32_table.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\crc32_vec_template.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\decompress_template.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_compress.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\deflate_constants.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\gzip_constants.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\hc_matchfinder.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\lib_common.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\matchfinder_common.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\unaligned.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\zlib_constants.h">
+      <Filter>external\libdeflate</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sokol">
@@ -777,6 +1146,15 @@
     </Filter>
     <Filter Include="external\openexr">
       <UniqueIdentifier>{326ed17c-3a51-4d17-9a81-5ac168d03d44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\zlib">
+      <UniqueIdentifier>{837516b4-e0f2-4f7a-968f-38a7212f56de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\zstd">
+      <UniqueIdentifier>{a22cc300-f039-480d-b1be-d0559372a966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\libdeflate">
+      <UniqueIdentifier>{785f14c3-6ac4-4174-9b3b-8638b91893c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
