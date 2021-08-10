@@ -1,3 +1,5 @@
+#define _ITERATOR_DEBUG_LEVEL 0
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
@@ -11,7 +13,10 @@
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
 #include <sys/stat.h>
+#ifdef _MSC_VER
+#else
 #include <sys/fcntl.h>
+#endif
 #include <thread>
 #include "systeminfo.h"
 
@@ -69,7 +74,7 @@ static const CompressorDesc kTestCompr[] =
 #if 1
     //{ 6, -3 },
     //{ 6, -1 },
-    { 6, 1 },
+    //{ 6, 1 },
     //{ 6, 2 },
     //{ 6, 3 }, // default
     //{ 6, 4 },
@@ -266,8 +271,8 @@ static bool TestFile(const char* filePath, int runIndex)
             {
                 if (cmpType == ZIP_COMPRESSION)
                     addZipCompressionLevel(outHeader, cmp.level);
-                if (cmpType == ZSTD_COMPRESSION)
-                    addZstdCompressionLevel(outHeader, cmp.level);
+                //if (cmpType == ZSTD_COMPRESSION)
+                //    addZstdCompressionLevel(outHeader, cmp.level);
             }
 
             FILE* outCFile = fopen(outFilePath, "wb");

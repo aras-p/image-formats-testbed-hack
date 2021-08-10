@@ -1,3 +1,5 @@
+#define _ITERATOR_DEBUG_LEVEL 0
+#define _CRT_SECURE_NO_WARNINGS
 #include "systeminfo.h"
 
 #include <time.h>
