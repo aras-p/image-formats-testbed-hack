@@ -22,7 +22,9 @@
 // (e.g., OS X).
 //
 
+#ifdef __APPLE__
 #define OPENEXR_IMF_HAVE_DARWIN 1
+#endif
 
 //
 // Define and set to 1 if the target system has a complete <iomanip>
@@ -35,13 +37,16 @@
 //
 // Define if we can use sysconf(_SC_NPROCESSORS_ONLN) to get CPU count
 //
-
+#ifndef _MSC_VER
 #define OPENEXR_IMF_HAVE_SYSCONF_NPROCESSORS_ONLN 1
+#endif
 
 //
 // Define if we can support GCC style inline asm with AVX instructions
 //
 
+#ifndef _MSC_VER
 #define OPENEXR_IMF_HAVE_GCC_INLINE_ASM_AVX 1
+#endif
 
 #endif // INCLUDED_OPENEXR_INTERNAL_CONFIG_H

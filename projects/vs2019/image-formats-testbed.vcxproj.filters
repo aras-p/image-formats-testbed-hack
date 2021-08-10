@@ -6,27 +6,777 @@
     <ClCompile Include="..\..\src\sokol\sokol_impl.c">
       <Filter>sokol</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\xxHash\xxhash.c">
-      <Filter>xxhash</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\fileio.cpp" />
+    <ClCompile Include="..\..\src\external\imath\src\Imath\half.cpp">
+      <Filter>external\imath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathColorAlgo.cpp">
+      <Filter>external\imath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathFun.cpp">
+      <Filter>external\imath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathMatrixAlgo.cpp">
+      <Filter>external\imath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathRandom.cpp">
+      <Filter>external\imath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAcesFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfB44Compressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfBoxAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelList.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelListAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticities.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticitiesAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompositeDeepScanLine.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressionAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfConvert.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCRgbaFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepCompositing.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepFrameBuffer.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepImageStateAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDoubleAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDwaCompressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmap.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmapAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFastHuf.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatVectorAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFrameBuffer.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFramesPerSecond.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericInputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericOutputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHeader.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHuf.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifest.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifestAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPartData.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIntAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIO.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCode.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCodeAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLineOrderAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLut.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMatrixAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMisc.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartInputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartOutputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiView.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOpaqueAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPartData.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPartType.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPizCompressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImage.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImageAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPxr24Compressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRational.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRationalAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaYca.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRle.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRleCompressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfScanLineInputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStandardAttributes.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStdIO.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringVectorAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfSystemSpecific.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTestFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfThreading.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileDescriptionAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledMisc.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputPart.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledRgbaFile.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileOffsets.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCode.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCodeAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVecAttribute.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVersion.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfWav.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\systeminfo.h" />
     <ClInclude Include="..\..\src\sokol\sokol_time.h">
       <Filter>sokol</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\xxHash\xxhash.h">
-      <Filter>xxhash</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\fileio.h" />
+    <ClInclude Include="..\..\src\external\IexConfig.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\IexConfigInternal.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\IlmThreadConfig.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\ImathConfig.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\OpenEXRConfig.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\OpenEXRConfigInternal.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\half.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\halfFunction.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\halfLimits.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathBox.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathBoxAlgo.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathColor.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathColorAlgo.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathEuler.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathExport.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathForward.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFrame.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFrustum.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFrustumTest.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFun.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathGL.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathGLU.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathInt64.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathInterval.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathLine.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathLineAlgo.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathMath.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathMatrix.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathMatrixAlgo.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathNamespace.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathPlane.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathPlatform.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathQuat.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathRandom.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathRoots.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathShear.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathSphere.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathTypeTraits.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathVec.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathVecAlgo.h">
+      <Filter>external\imath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAcesFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfArray.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAutoArray.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfB44Compressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfBoxAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelList.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelListAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCheckedArithmetic.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticities.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticitiesAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompositeDeepScanLine.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompression.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressionAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfConvert.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCRgbaFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepCompositing.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepFrameBuffer.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepImageState.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepImageStateAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDoubleAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDwaCompressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDwaCompressorSimd.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmap.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmapAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfExport.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFastHuf.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatVectorAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfForward.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFrameBuffer.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFramesPerSecond.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericInputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericOutputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHeader.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHuf.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifest.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifestAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPartData.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputStreamMutex.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInt64.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIntAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIO.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCode.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCodeAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLineOrder.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLineOrderAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLut.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMatrixAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMisc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartInputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartOutputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiView.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfName.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfNamespace.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOpaqueAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOptimizedPixelReading.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPartData.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputStreamMutex.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPartHelper.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPartType.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPixelType.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPizCompressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImage.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImageAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPxr24Compressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRational.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRationalAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgba.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaYca.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRle.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRleCompressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfScanLineInputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfSimd.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStandardAttributes.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStdIO.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringVectorAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfSystemSpecific.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTestFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfThreading.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileDescription.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileDescriptionAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledMisc.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputPart.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledRgbaFile.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileOffsets.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCode.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCodeAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVecAttribute.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVersion.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfWav.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfXdr.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sokol">
       <UniqueIdentifier>{aed6c8a5-d77a-4ec0-8805-4d3f9bf109f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xxhash">
-      <UniqueIdentifier>{f4704cb3-2d66-48d3-97f3-ac0c673ef80c}</UniqueIdentifier>
+    <Filter Include="external">
+      <UniqueIdentifier>{8834037e-d1b3-40a2-a066-ccaf30dac86a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\imath">
+      <UniqueIdentifier>{23356f64-b619-48f7-bfeb-d5f5b29fb367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\openexr">
+      <UniqueIdentifier>{326ed17c-3a51-4d17-9a81-5ac168d03d44}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

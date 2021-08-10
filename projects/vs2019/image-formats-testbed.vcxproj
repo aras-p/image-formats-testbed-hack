@@ -19,17 +19,265 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\external\imath\src\Imath\half.cpp" />
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathColorAlgo.cpp" />
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathFun.cpp" />
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathMatrixAlgo.cpp" />
+    <ClCompile Include="..\..\src\external\imath\src\Imath\ImathRandom.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAcesFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfB44Compressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfBoxAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelList.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelListAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticities.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticitiesAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompositeDeepScanLine.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressionAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfConvert.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCRgbaFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepCompositing.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepFrameBuffer.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepImageStateAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDoubleAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDwaCompressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmap.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmapAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFastHuf.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatVectorAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFrameBuffer.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFramesPerSecond.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericInputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericOutputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHeader.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHuf.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifest.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifestAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPartData.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIntAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIO.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCode.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCodeAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLineOrderAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLut.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMatrixAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMisc.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartInputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartOutputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiView.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOpaqueAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPartData.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPartType.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPizCompressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImage.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImageAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPxr24Compressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRational.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRationalAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaYca.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRle.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRleCompressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfScanLineInputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStandardAttributes.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStdIO.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringVectorAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfSystemSpecific.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTestFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfThreading.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileDescriptionAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledMisc.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputPart.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledRgbaFile.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileOffsets.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCode.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCodeAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVecAttribute.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVersion.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfWav.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.cpp" />
     <ClCompile Include="..\..\src\fileio.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\sokol\sokol_impl.c" />
     <ClCompile Include="..\..\src\systeminfo.cpp" />
-    <ClCompile Include="..\..\src\xxHash\xxhash.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\external\IexConfig.h" />
+    <ClInclude Include="..\..\src\external\IexConfigInternal.h" />
+    <ClInclude Include="..\..\src\external\IlmThreadConfig.h" />
+    <ClInclude Include="..\..\src\external\ImathConfig.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\half.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\halfFunction.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\halfLimits.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathBox.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathBoxAlgo.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathColor.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathColorAlgo.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathEuler.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathExport.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathForward.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFrame.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFrustum.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFrustumTest.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathFun.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathGL.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathGLU.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathInt64.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathInterval.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathLine.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathLineAlgo.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathMath.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathMatrix.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathMatrixAlgo.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathNamespace.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathPlane.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathPlatform.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathQuat.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathRandom.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathRoots.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathShear.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathSphere.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathTypeTraits.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathVec.h" />
+    <ClInclude Include="..\..\src\external\imath\src\Imath\ImathVecAlgo.h" />
+    <ClInclude Include="..\..\src\external\OpenEXRConfig.h" />
+    <ClInclude Include="..\..\src\external\OpenEXRConfigInternal.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAcesFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfArray.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfAutoArray.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfB44Compressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfBoxAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelList.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChannelListAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCheckedArithmetic.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticities.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfChromaticitiesAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompositeDeepScanLine.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompression.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressionAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCompressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfConvert.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfCRgbaFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepCompositing.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepFrameBuffer.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepImageState.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepImageStateAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineInputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepScanLineOutputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledInputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDeepTiledOutputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDoubleAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDwaCompressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfDwaCompressorSimd.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmap.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfEnvmapAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfExport.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFastHuf.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFloatVectorAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfForward.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFrameBuffer.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfFramesPerSecond.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericInputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfGenericOutputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHeader.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfHuf.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifest.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIDManifestAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputPartData.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInputStreamMutex.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfInt64.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIntAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfIO.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCode.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfKeyCodeAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLineOrder.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLineOrderAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfLut.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMatrixAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMisc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartInputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiPartOutputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfMultiView.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfName.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfNamespace.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOpaqueAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOptimizedPixelReading.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputPartData.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfOutputStreamMutex.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPartHelper.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPartType.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPixelType.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPizCompressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImage.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPreviewImageAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfPxr24Compressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRational.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRationalAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgba.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRgbaYca.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRle.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfRleCompressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfScanLineInputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfSimd.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStandardAttributes.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStdIO.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfStringVectorAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfSystemSpecific.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTestFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfThreading.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileDescription.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileDescriptionAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledInputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledMisc.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledOutputPart.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTiledRgbaFile.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTileOffsets.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCode.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfTimeCodeAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVecAttribute.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVersion.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfWav.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfXdr.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.h" />
     <ClInclude Include="..\..\src\fileio.h" />
     <ClInclude Include="..\..\src\sokol\sokol_time.h" />
     <ClInclude Include="..\..\src\systeminfo.h" />
-    <ClInclude Include="..\..\src\xxHash\xxhash.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -109,12 +357,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/openexr/include/Imath</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>../../src/openexr/lib/OpenEXR-3_1.lib;../../src/openexr/lib/Iex-3_1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,14 +374,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/openexr/include/Imath</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>../../src/openexr/lib/OpenEXR-3_1.lib;../../src/openexr/lib/Iex-3_1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,12 +391,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/openexr/include/Imath</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>../../src/openexr/lib/OpenEXR-3_1.lib;../../src/openexr/lib/Iex-3_1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -157,14 +408,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/openexr/include/Imath</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>../../src/openexr/lib/OpenEXR-3_1.lib;../../src/openexr/lib/Iex-3_1.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
