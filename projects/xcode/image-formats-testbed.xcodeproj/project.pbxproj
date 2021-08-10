@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B9D7FFF26B920FF00564F54 /* xxhash.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D7FFE26B920FF00564F54 /* xxhash.c */; };
 		2B9D800426B9217200564F54 /* sokol_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D800226B9217200564F54 /* sokol_impl.c */; };
 		2B9D800826BA491C00564F54 /* systeminfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D800626BA491C00564F54 /* systeminfo.cpp */; };
 		2BAF32A626A6D875002D74A4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32A526A6D875002D74A4 /* main.cpp */; };
@@ -137,6 +136,42 @@
 		2BCD041C26C2A5B000ACE2AA /* IlmThreadSemaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD040F26C2A5B000ACE2AA /* IlmThreadSemaphore.cpp */; };
 		2BCD041D26C2A5B000ACE2AA /* IlmThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD041326C2A5B000ACE2AA /* IlmThread.cpp */; };
 		2BCD041E26C2A5B000ACE2AA /* IlmThreadSemaphoreWin32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD041426C2A5B000ACE2AA /* IlmThreadSemaphoreWin32.cpp */; };
+		2BCD043026C2A7DC00ACE2AA /* zlib_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042726C2A7DB00ACE2AA /* zlib_decompress.c */; };
+		2BCD043126C2A7DC00ACE2AA /* gzip_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042826C2A7DB00ACE2AA /* gzip_decompress.c */; };
+		2BCD043226C2A7DC00ACE2AA /* adler32.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042926C2A7DB00ACE2AA /* adler32.c */; };
+		2BCD043326C2A7DC00ACE2AA /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042A26C2A7DB00ACE2AA /* crc32.c */; };
+		2BCD043426C2A7DC00ACE2AA /* gzip_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042B26C2A7DB00ACE2AA /* gzip_compress.c */; };
+		2BCD043526C2A7DC00ACE2AA /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042C26C2A7DB00ACE2AA /* utils.c */; };
+		2BCD043626C2A7DC00ACE2AA /* zlib_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042D26C2A7DB00ACE2AA /* zlib_compress.c */; };
+		2BCD043726C2A7DC00ACE2AA /* deflate_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042E26C2A7DB00ACE2AA /* deflate_compress.c */; };
+		2BCD043826C2A7DC00ACE2AA /* deflate_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD042F26C2A7DB00ACE2AA /* deflate_decompress.c */; };
+		2BCD043B26C2A7E500ACE2AA /* cpu_features.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD043A26C2A7E500ACE2AA /* cpu_features.c */; };
+		2BCD044826C2A81600ACE2AA /* fse_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044026C2A81500ACE2AA /* fse_decompress.c */; };
+		2BCD044926C2A81600ACE2AA /* xxhash.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044126C2A81500ACE2AA /* xxhash.c */; };
+		2BCD044A26C2A81600ACE2AA /* error_private.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044226C2A81500ACE2AA /* error_private.c */; };
+		2BCD044B26C2A81600ACE2AA /* entropy_common.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044326C2A81500ACE2AA /* entropy_common.c */; };
+		2BCD044C26C2A81600ACE2AA /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044426C2A81500ACE2AA /* debug.c */; };
+		2BCD044D26C2A81600ACE2AA /* threading.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044526C2A81500ACE2AA /* threading.c */; };
+		2BCD044E26C2A81600ACE2AA /* zstd_common.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044626C2A81500ACE2AA /* zstd_common.c */; };
+		2BCD044F26C2A81600ACE2AA /* pool.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD044726C2A81500ACE2AA /* pool.c */; };
+		2BCD045E26C2A82C00ACE2AA /* huf_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045126C2A82C00ACE2AA /* huf_compress.c */; };
+		2BCD045F26C2A82C00ACE2AA /* zstd_ldm.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045226C2A82C00ACE2AA /* zstd_ldm.c */; };
+		2BCD046026C2A82C00ACE2AA /* zstd_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045326C2A82C00ACE2AA /* zstd_opt.c */; };
+		2BCD046126C2A82C00ACE2AA /* fse_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045426C2A82C00ACE2AA /* fse_compress.c */; };
+		2BCD046226C2A82C00ACE2AA /* zstd_compress_sequences.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045526C2A82C00ACE2AA /* zstd_compress_sequences.c */; };
+		2BCD046326C2A82C00ACE2AA /* zstd_fast.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045626C2A82C00ACE2AA /* zstd_fast.c */; };
+		2BCD046426C2A82C00ACE2AA /* hist.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045726C2A82C00ACE2AA /* hist.c */; };
+		2BCD046526C2A82C00ACE2AA /* zstd_lazy.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045826C2A82C00ACE2AA /* zstd_lazy.c */; };
+		2BCD046626C2A82C00ACE2AA /* zstd_double_fast.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045926C2A82C00ACE2AA /* zstd_double_fast.c */; };
+		2BCD046726C2A82C00ACE2AA /* zstd_compress_literals.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045A26C2A82C00ACE2AA /* zstd_compress_literals.c */; };
+		2BCD046826C2A82C00ACE2AA /* zstd_compress_superblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045B26C2A82C00ACE2AA /* zstd_compress_superblock.c */; };
+		2BCD046926C2A82C00ACE2AA /* zstdmt_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045C26C2A82C00ACE2AA /* zstdmt_compress.c */; };
+		2BCD046A26C2A82C00ACE2AA /* zstd_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD045D26C2A82C00ACE2AA /* zstd_compress.c */; };
+		2BCD047026C2A83800ACE2AA /* huf_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD046C26C2A83800ACE2AA /* huf_decompress.c */; };
+		2BCD047126C2A83800ACE2AA /* zstd_ddict.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD046D26C2A83800ACE2AA /* zstd_ddict.c */; };
+		2BCD047226C2A83800ACE2AA /* zstd_decompress_block.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD046E26C2A83800ACE2AA /* zstd_decompress_block.c */; };
+		2BCD047326C2A83800ACE2AA /* zstd_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD046F26C2A83800ACE2AA /* zstd_decompress.c */; };
+		2BCD047726C2A85E00ACE2AA /* ImfZstdCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD047526C2A85E00ACE2AA /* ImfZstdCompressor.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -152,8 +187,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2B9D7FFD26B920FF00564F54 /* xxhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxhash.h; sourceTree = "<group>"; };
-		2B9D7FFE26B920FF00564F54 /* xxhash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xxhash.c; sourceTree = "<group>"; };
 		2B9D800226B9217200564F54 /* sokol_impl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sokol_impl.c; sourceTree = "<group>"; };
 		2B9D800326B9217200564F54 /* sokol_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sokol_time.h; sourceTree = "<group>"; };
 		2B9D800626BA491C00564F54 /* systeminfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = systeminfo.cpp; sourceTree = "<group>"; };
@@ -487,6 +520,45 @@
 		2BCD041526C2A5B000ACE2AA /* IlmThreadExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IlmThreadExport.h; path = src/lib/IlmThread/IlmThreadExport.h; sourceTree = "<group>"; };
 		2BCD041626C2A5B000ACE2AA /* IlmThreadMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IlmThreadMutex.h; path = src/lib/IlmThread/IlmThreadMutex.h; sourceTree = "<group>"; };
 		2BCD041726C2A5B000ACE2AA /* IlmThreadNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IlmThreadNamespace.h; path = src/lib/IlmThread/IlmThreadNamespace.h; sourceTree = "<group>"; };
+		2BCD042726C2A7DB00ACE2AA /* zlib_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zlib_decompress.c; path = ../src/lib/OpenEXR/libdeflate/lib/zlib_decompress.c; sourceTree = "<group>"; };
+		2BCD042826C2A7DB00ACE2AA /* gzip_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gzip_decompress.c; path = ../src/lib/OpenEXR/libdeflate/lib/gzip_decompress.c; sourceTree = "<group>"; };
+		2BCD042926C2A7DB00ACE2AA /* adler32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = adler32.c; path = ../src/lib/OpenEXR/libdeflate/lib/adler32.c; sourceTree = "<group>"; };
+		2BCD042A26C2A7DB00ACE2AA /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc32.c; path = ../src/lib/OpenEXR/libdeflate/lib/crc32.c; sourceTree = "<group>"; };
+		2BCD042B26C2A7DB00ACE2AA /* gzip_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gzip_compress.c; path = ../src/lib/OpenEXR/libdeflate/lib/gzip_compress.c; sourceTree = "<group>"; };
+		2BCD042C26C2A7DB00ACE2AA /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = utils.c; path = ../src/lib/OpenEXR/libdeflate/lib/utils.c; sourceTree = "<group>"; };
+		2BCD042D26C2A7DB00ACE2AA /* zlib_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zlib_compress.c; path = ../src/lib/OpenEXR/libdeflate/lib/zlib_compress.c; sourceTree = "<group>"; };
+		2BCD042E26C2A7DB00ACE2AA /* deflate_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = deflate_compress.c; path = ../src/lib/OpenEXR/libdeflate/lib/deflate_compress.c; sourceTree = "<group>"; };
+		2BCD042F26C2A7DB00ACE2AA /* deflate_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = deflate_decompress.c; path = ../src/lib/OpenEXR/libdeflate/lib/deflate_decompress.c; sourceTree = "<group>"; };
+		2BCD043A26C2A7E500ACE2AA /* cpu_features.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu_features.c; path = ../src/lib/OpenEXR/libdeflate/lib/x86/cpu_features.c; sourceTree = "<group>"; };
+		2BCD043D26C2A7F000ACE2AA /* libdeflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libdeflate.h; path = ../src/lib/OpenEXR/libdeflate/libdeflate.h; sourceTree = "<group>"; };
+		2BCD043F26C2A80400ACE2AA /* zstd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zstd.h; path = ../src/lib/OpenEXR/zstd/zstd.h; sourceTree = "<group>"; };
+		2BCD044026C2A81500ACE2AA /* fse_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fse_decompress.c; path = ../src/lib/OpenEXR/zstd/common/fse_decompress.c; sourceTree = "<group>"; };
+		2BCD044126C2A81500ACE2AA /* xxhash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = xxhash.c; path = ../src/lib/OpenEXR/zstd/common/xxhash.c; sourceTree = "<group>"; };
+		2BCD044226C2A81500ACE2AA /* error_private.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = error_private.c; path = ../src/lib/OpenEXR/zstd/common/error_private.c; sourceTree = "<group>"; };
+		2BCD044326C2A81500ACE2AA /* entropy_common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entropy_common.c; path = ../src/lib/OpenEXR/zstd/common/entropy_common.c; sourceTree = "<group>"; };
+		2BCD044426C2A81500ACE2AA /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = debug.c; path = ../src/lib/OpenEXR/zstd/common/debug.c; sourceTree = "<group>"; };
+		2BCD044526C2A81500ACE2AA /* threading.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = threading.c; path = ../src/lib/OpenEXR/zstd/common/threading.c; sourceTree = "<group>"; };
+		2BCD044626C2A81500ACE2AA /* zstd_common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_common.c; path = ../src/lib/OpenEXR/zstd/common/zstd_common.c; sourceTree = "<group>"; };
+		2BCD044726C2A81500ACE2AA /* pool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pool.c; path = ../src/lib/OpenEXR/zstd/common/pool.c; sourceTree = "<group>"; };
+		2BCD045126C2A82C00ACE2AA /* huf_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = huf_compress.c; path = ../src/lib/OpenEXR/zstd/compress/huf_compress.c; sourceTree = "<group>"; };
+		2BCD045226C2A82C00ACE2AA /* zstd_ldm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_ldm.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_ldm.c; sourceTree = "<group>"; };
+		2BCD045326C2A82C00ACE2AA /* zstd_opt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_opt.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_opt.c; sourceTree = "<group>"; };
+		2BCD045426C2A82C00ACE2AA /* fse_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fse_compress.c; path = ../src/lib/OpenEXR/zstd/compress/fse_compress.c; sourceTree = "<group>"; };
+		2BCD045526C2A82C00ACE2AA /* zstd_compress_sequences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_compress_sequences.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_compress_sequences.c; sourceTree = "<group>"; };
+		2BCD045626C2A82C00ACE2AA /* zstd_fast.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_fast.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_fast.c; sourceTree = "<group>"; };
+		2BCD045726C2A82C00ACE2AA /* hist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hist.c; path = ../src/lib/OpenEXR/zstd/compress/hist.c; sourceTree = "<group>"; };
+		2BCD045826C2A82C00ACE2AA /* zstd_lazy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_lazy.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_lazy.c; sourceTree = "<group>"; };
+		2BCD045926C2A82C00ACE2AA /* zstd_double_fast.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_double_fast.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_double_fast.c; sourceTree = "<group>"; };
+		2BCD045A26C2A82C00ACE2AA /* zstd_compress_literals.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_compress_literals.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_compress_literals.c; sourceTree = "<group>"; };
+		2BCD045B26C2A82C00ACE2AA /* zstd_compress_superblock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_compress_superblock.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_compress_superblock.c; sourceTree = "<group>"; };
+		2BCD045C26C2A82C00ACE2AA /* zstdmt_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstdmt_compress.c; path = ../src/lib/OpenEXR/zstd/compress/zstdmt_compress.c; sourceTree = "<group>"; };
+		2BCD045D26C2A82C00ACE2AA /* zstd_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_compress.c; path = ../src/lib/OpenEXR/zstd/compress/zstd_compress.c; sourceTree = "<group>"; };
+		2BCD046C26C2A83800ACE2AA /* huf_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = huf_decompress.c; path = ../src/lib/OpenEXR/zstd/decompress/huf_decompress.c; sourceTree = "<group>"; };
+		2BCD046D26C2A83800ACE2AA /* zstd_ddict.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_ddict.c; path = ../src/lib/OpenEXR/zstd/decompress/zstd_ddict.c; sourceTree = "<group>"; };
+		2BCD046E26C2A83800ACE2AA /* zstd_decompress_block.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_decompress_block.c; path = ../src/lib/OpenEXR/zstd/decompress/zstd_decompress_block.c; sourceTree = "<group>"; };
+		2BCD046F26C2A83800ACE2AA /* zstd_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zstd_decompress.c; path = ../src/lib/OpenEXR/zstd/decompress/zstd_decompress.c; sourceTree = "<group>"; };
+		2BCD047526C2A85E00ACE2AA /* ImfZstdCompressor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImfZstdCompressor.cpp; path = src/lib/OpenEXR/ImfZstdCompressor.cpp; sourceTree = "<group>"; };
+		2BCD047626C2A85E00ACE2AA /* ImfZstdCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImfZstdCompressor.h; path = src/lib/OpenEXR/ImfZstdCompressor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,15 +573,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B9D7FFC26B920EC00564F54 /* xxHash */ = {
-			isa = PBXGroup;
-			children = (
-				2B9D7FFE26B920FF00564F54 /* xxhash.c */,
-				2B9D7FFD26B920FF00564F54 /* xxhash.h */,
-			);
-			path = xxHash;
-			sourceTree = "<group>";
-		};
 		2B9D800126B9215000564F54 /* sokol */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,7 +608,6 @@
 				2B9D800626BA491C00564F54 /* systeminfo.cpp */,
 				2B9D800726BA491C00564F54 /* systeminfo.h */,
 				2B9D800126B9215000564F54 /* sokol */,
-				2B9D7FFC26B920EC00564F54 /* xxHash */,
 				2BAF32B426A6DC2B002D74A4 /* tinyexr */,
 				2BAF32A526A6D875002D74A4 /* main.cpp */,
 			);
@@ -677,6 +739,10 @@
 		2BCD028326C2A03800ACE2AA /* openexr */ = {
 			isa = PBXGroup;
 			children = (
+				2BCD047526C2A85E00ACE2AA /* ImfZstdCompressor.cpp */,
+				2BCD047626C2A85E00ACE2AA /* ImfZstdCompressor.h */,
+				2BCD042626C2A78D00ACE2AA /* libdeflate */,
+				2BCD042526C2A78900ACE2AA /* zstd */,
 				2BCD041326C2A5B000ACE2AA /* IlmThread.cpp */,
 				2BCD041126C2A5B000ACE2AA /* IlmThread.h */,
 				2BCD041526C2A5B000ACE2AA /* IlmThreadExport.h */,
@@ -963,6 +1029,57 @@
 			path = imath;
 			sourceTree = "<group>";
 		};
+		2BCD042526C2A78900ACE2AA /* zstd */ = {
+			isa = PBXGroup;
+			children = (
+				2BCD046C26C2A83800ACE2AA /* huf_decompress.c */,
+				2BCD046D26C2A83800ACE2AA /* zstd_ddict.c */,
+				2BCD046E26C2A83800ACE2AA /* zstd_decompress_block.c */,
+				2BCD046F26C2A83800ACE2AA /* zstd_decompress.c */,
+				2BCD045426C2A82C00ACE2AA /* fse_compress.c */,
+				2BCD045726C2A82C00ACE2AA /* hist.c */,
+				2BCD045126C2A82C00ACE2AA /* huf_compress.c */,
+				2BCD045A26C2A82C00ACE2AA /* zstd_compress_literals.c */,
+				2BCD045526C2A82C00ACE2AA /* zstd_compress_sequences.c */,
+				2BCD045B26C2A82C00ACE2AA /* zstd_compress_superblock.c */,
+				2BCD045D26C2A82C00ACE2AA /* zstd_compress.c */,
+				2BCD045926C2A82C00ACE2AA /* zstd_double_fast.c */,
+				2BCD045626C2A82C00ACE2AA /* zstd_fast.c */,
+				2BCD045826C2A82C00ACE2AA /* zstd_lazy.c */,
+				2BCD045226C2A82C00ACE2AA /* zstd_ldm.c */,
+				2BCD045326C2A82C00ACE2AA /* zstd_opt.c */,
+				2BCD045C26C2A82C00ACE2AA /* zstdmt_compress.c */,
+				2BCD044426C2A81500ACE2AA /* debug.c */,
+				2BCD044326C2A81500ACE2AA /* entropy_common.c */,
+				2BCD044226C2A81500ACE2AA /* error_private.c */,
+				2BCD044026C2A81500ACE2AA /* fse_decompress.c */,
+				2BCD044726C2A81500ACE2AA /* pool.c */,
+				2BCD044526C2A81500ACE2AA /* threading.c */,
+				2BCD044126C2A81500ACE2AA /* xxhash.c */,
+				2BCD044626C2A81500ACE2AA /* zstd_common.c */,
+				2BCD043F26C2A80400ACE2AA /* zstd.h */,
+			);
+			path = zstd;
+			sourceTree = "<group>";
+		};
+		2BCD042626C2A78D00ACE2AA /* libdeflate */ = {
+			isa = PBXGroup;
+			children = (
+				2BCD043D26C2A7F000ACE2AA /* libdeflate.h */,
+				2BCD043A26C2A7E500ACE2AA /* cpu_features.c */,
+				2BCD042926C2A7DB00ACE2AA /* adler32.c */,
+				2BCD042A26C2A7DB00ACE2AA /* crc32.c */,
+				2BCD042E26C2A7DB00ACE2AA /* deflate_compress.c */,
+				2BCD042F26C2A7DB00ACE2AA /* deflate_decompress.c */,
+				2BCD042B26C2A7DB00ACE2AA /* gzip_compress.c */,
+				2BCD042826C2A7DB00ACE2AA /* gzip_decompress.c */,
+				2BCD042C26C2A7DB00ACE2AA /* utils.c */,
+				2BCD042D26C2A7DB00ACE2AA /* zlib_compress.c */,
+				2BCD042726C2A7DB00ACE2AA /* zlib_decompress.c */,
+			);
+			path = libdeflate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1020,10 +1137,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BAF331426A6DC2B002D74A4 /* decode2f.c in Sources */,
+				2BCD046426C2A82C00ACE2AA /* hist.c in Sources */,
 				2BCD036526C2A07F00ACE2AA /* ImfPizCompressor.cpp in Sources */,
 				2BCD035C26C2A07F00ACE2AA /* ImfThreading.cpp in Sources */,
 				2BCD03AC26C2A07F00ACE2AA /* ImfAttribute.cpp in Sources */,
 				2BCD037A26C2A07F00ACE2AA /* ImfGenericInputFile.cpp in Sources */,
+				2BCD046326C2A82C00ACE2AA /* zstd_fast.c in Sources */,
+				2BCD045F26C2A82C00ACE2AA /* zstd_ldm.c in Sources */,
 				2BCD039126C2A07F00ACE2AA /* ImfFastHuf.cpp in Sources */,
 				2BCD03A526C2A07F00ACE2AA /* ImfInputFile.cpp in Sources */,
 				2BCD037B26C2A07F00ACE2AA /* ImfRational.cpp in Sources */,
@@ -1032,16 +1152,19 @@
 				2BCD036B26C2A07F00ACE2AA /* ImfFramesPerSecond.cpp in Sources */,
 				2BCD037126C2A07F00ACE2AA /* ImfSystemSpecific.cpp in Sources */,
 				2BCD03A026C2A07F00ACE2AA /* ImfZipCompressor.cpp in Sources */,
+				2BCD046A26C2A82C00ACE2AA /* zstd_compress.c in Sources */,
 				2BCD039326C2A07F00ACE2AA /* ImfKeyCodeAttribute.cpp in Sources */,
 				2BCD037926C2A07F00ACE2AA /* ImfDwaCompressor.cpp in Sources */,
 				2BCD041826C2A5B000ACE2AA /* IlmThreadPool.cpp in Sources */,
 				2BCD036826C2A07F00ACE2AA /* ImfGenericOutputFile.cpp in Sources */,
+				2BCD044B26C2A81600ACE2AA /* entropy_common.c in Sources */,
 				2BCD035526C2A07F00ACE2AA /* ImfIDManifest.cpp in Sources */,
 				2BCD035926C2A07F00ACE2AA /* ImfCompressor.cpp in Sources */,
 				2BCD038E26C2A07F00ACE2AA /* ImfMatrixAttribute.cpp in Sources */,
 				2BCD03E426C2A29E00ACE2AA /* half.cpp in Sources */,
 				2BCD038326C2A07F00ACE2AA /* ImfIDManifestAttribute.cpp in Sources */,
 				2BCD03AF26C2A07F00ACE2AA /* ImfTiledRgbaFile.cpp in Sources */,
+				2BCD043B26C2A7E500ACE2AA /* cpu_features.c in Sources */,
 				2BCD039626C2A07F00ACE2AA /* ImfRationalAttribute.cpp in Sources */,
 				2BAF330026A6DC2B002D74A4 /* encode1f.c in Sources */,
 				2BCD037326C2A07F00ACE2AA /* ImfEnvmapAttribute.cpp in Sources */,
@@ -1049,44 +1172,55 @@
 				2BCD03A426C2A07F00ACE2AA /* ImfDeepScanLineInputPart.cpp in Sources */,
 				2BCD038726C2A07F00ACE2AA /* ImfAcesFile.cpp in Sources */,
 				2BAF331626A6DC2B002D74A4 /* decode3f.c in Sources */,
+				2BCD043526C2A7DC00ACE2AA /* utils.c in Sources */,
 				2BCD03A326C2A07F00ACE2AA /* ImfTiledInputFile.cpp in Sources */,
 				2BCD03A226C2A07F00ACE2AA /* ImfTileDescriptionAttribute.cpp in Sources */,
 				2BCD03B026C2A07F00ACE2AA /* ImfInputPart.cpp in Sources */,
 				2BCD041A26C2A5B000ACE2AA /* IlmThreadSemaphoreOSX.cpp in Sources */,
 				2BAF331526A6DC2B002D74A4 /* encode1d.c in Sources */,
+				2BCD043026C2A7DC00ACE2AA /* zlib_decompress.c in Sources */,
 				2BCD038026C2A07F00ACE2AA /* ImfDeepScanLineInputFile.cpp in Sources */,
+				2BCD043726C2A7DC00ACE2AA /* deflate_compress.c in Sources */,
+				2BCD046026C2A82C00ACE2AA /* zstd_opt.c in Sources */,
 				2BCD039E26C2A07F00ACE2AA /* ImfStringVectorAttribute.cpp in Sources */,
 				2BCD038626C2A07F00ACE2AA /* ImfPreviewImageAttribute.cpp in Sources */,
 				2BCD035E26C2A07F00ACE2AA /* ImfStdIO.cpp in Sources */,
+				2BCD047126C2A83800ACE2AA /* zstd_ddict.c in Sources */,
 				2BCD037526C2A07F00ACE2AA /* ImfTiledOutputFile.cpp in Sources */,
 				2BAF331226A6DC2B002D74A4 /* decode1d.c in Sources */,
+				2BCD046126C2A82C00ACE2AA /* fse_compress.c in Sources */,
 				2BCD035F26C2A07F00ACE2AA /* ImfMultiPartOutputFile.cpp in Sources */,
 				2BAF32FD26A6DC2B002D74A4 /* encode2d.c in Sources */,
 				2BCD035A26C2A07F00ACE2AA /* ImfOpaqueAttribute.cpp in Sources */,
 				2BCD035826C2A07F00ACE2AA /* ImfVecAttribute.cpp in Sources */,
 				2BCD041B26C2A5B000ACE2AA /* IlmThreadSemaphorePosix.cpp in Sources */,
 				2BCD036C26C2A07F00ACE2AA /* ImfConvert.cpp in Sources */,
+				2BCD046926C2A82C00ACE2AA /* zstdmt_compress.c in Sources */,
 				2BCD03AD26C2A07F00ACE2AA /* ImfHuf.cpp in Sources */,
 				2BCD039526C2A07F00ACE2AA /* ImfPxr24Compressor.cpp in Sources */,
 				2BCD039226C2A07F00ACE2AA /* ImfB44Compressor.cpp in Sources */,
+				2BCD043426C2A7DC00ACE2AA /* gzip_compress.c in Sources */,
 				2BAF32F926A6DC2B002D74A4 /* tinyexr.cc in Sources */,
-				2B9D7FFF26B920FF00564F54 /* xxhash.c in Sources */,
 				2BCD037426C2A07F00ACE2AA /* ImfFloatAttribute.cpp in Sources */,
+				2BCD044F26C2A81600ACE2AA /* pool.c in Sources */,
 				2BCD038526C2A07F00ACE2AA /* ImfStandardAttributes.cpp in Sources */,
 				2BCD037E26C2A07F00ACE2AA /* ImfPartType.cpp in Sources */,
 				2BCD036D26C2A07F00ACE2AA /* ImfOutputPartData.cpp in Sources */,
+				2BCD047326C2A83800ACE2AA /* zstd_decompress.c in Sources */,
 				2BCD03AE26C2A07F00ACE2AA /* ImfCompositeDeepScanLine.cpp in Sources */,
 				2BCD03FC26C2A31000ACE2AA /* IexBaseExc.cpp in Sources */,
 				2BCD03E326C2A29E00ACE2AA /* ImathMatrixAlgo.cpp in Sources */,
 				2BCD036E26C2A07F00ACE2AA /* ImfChromaticities.cpp in Sources */,
 				2BAF32FA26A6DC2B002D74A4 /* encode3d.c in Sources */,
 				2BCD038C26C2A07F00ACE2AA /* ImfTimeCodeAttribute.cpp in Sources */,
+				2BCD044926C2A81600ACE2AA /* xxhash.c in Sources */,
 				2BCD038926C2A07F00ACE2AA /* ImfFloatVectorAttribute.cpp in Sources */,
 				2BCD039726C2A07F00ACE2AA /* ImfPreviewImage.cpp in Sources */,
 				2B9D800426B9217200564F54 /* sokol_impl.c in Sources */,
 				2BCD037826C2A07F00ACE2AA /* ImfWav.cpp in Sources */,
 				2BCD035626C2A07F00ACE2AA /* ImfBoxAttribute.cpp in Sources */,
 				2BAF331326A6DC2B002D74A4 /* encode2f.c in Sources */,
+				2BCD043126C2A7DC00ACE2AA /* gzip_decompress.c in Sources */,
 				2BCD036426C2A07F00ACE2AA /* ImfOutputPart.cpp in Sources */,
 				2BCD039A26C2A07F00ACE2AA /* ImfTiledInputPart.cpp in Sources */,
 				2BCD037D26C2A07F00ACE2AA /* ImfMisc.cpp in Sources */,
@@ -1098,39 +1232,54 @@
 				2BCD03E526C2A29E00ACE2AA /* ImathFun.cpp in Sources */,
 				2BCD036126C2A07F00ACE2AA /* ImfTiledOutputPart.cpp in Sources */,
 				2BCD039826C2A07F00ACE2AA /* ImfStringAttribute.cpp in Sources */,
+				2BCD043826C2A7DC00ACE2AA /* deflate_decompress.c in Sources */,
 				2BCD03AA26C2A07F00ACE2AA /* ImfHeader.cpp in Sources */,
 				2BCD039C26C2A07F00ACE2AA /* ImfKeyCode.cpp in Sources */,
 				2BCD035426C2A07F00ACE2AA /* ImfCompressionAttribute.cpp in Sources */,
+				2BCD047726C2A85E00ACE2AA /* ImfZstdCompressor.cpp in Sources */,
 				2BCD038126C2A07F00ACE2AA /* ImfScanLineInputFile.cpp in Sources */,
 				2BCD035D26C2A07F00ACE2AA /* ImfChannelList.cpp in Sources */,
 				2BCD038426C2A07F00ACE2AA /* ImfMultiPartInputFile.cpp in Sources */,
 				2BCD037C26C2A07F00ACE2AA /* ImfLineOrderAttribute.cpp in Sources */,
 				2BCD03A126C2A07F00ACE2AA /* ImfRle.cpp in Sources */,
 				2BCD03FD26C2A31000ACE2AA /* IexMathFpu.cpp in Sources */,
+				2BCD044826C2A81600ACE2AA /* fse_decompress.c in Sources */,
+				2BCD043626C2A7DC00ACE2AA /* zlib_compress.c in Sources */,
 				2BCD035726C2A07F00ACE2AA /* ImfDoubleAttribute.cpp in Sources */,
 				2BAF330126A6DC2B002D74A4 /* zfp.c in Sources */,
 				2BCD041E26C2A5B000ACE2AA /* IlmThreadSemaphoreWin32.cpp in Sources */,
 				2BCD041926C2A5B000ACE2AA /* IlmThreadSemaphorePosixCompat.cpp in Sources */,
 				2BCD03A726C2A07F00ACE2AA /* ImfRleCompressor.cpp in Sources */,
 				2BCD039F26C2A07F00ACE2AA /* ImfVersion.cpp in Sources */,
+				2BCD046626C2A82C00ACE2AA /* zstd_double_fast.c in Sources */,
+				2BCD046526C2A82C00ACE2AA /* zstd_lazy.c in Sources */,
 				2BCD03E726C2A29E00ACE2AA /* ImathRandom.cpp in Sources */,
 				2BAF32FF26A6DC2B002D74A4 /* decode2d.c in Sources */,
 				2BCD03AB26C2A07F00ACE2AA /* ImfTestFile.cpp in Sources */,
 				2BCD03E226C2A29E00ACE2AA /* ImathColorAlgo.cpp in Sources */,
 				2BAF32FE26A6DC2B002D74A4 /* Makefile in Sources */,
+				2BCD044D26C2A81600ACE2AA /* threading.c in Sources */,
 				2BCD035B26C2A07F00ACE2AA /* ImfOutputFile.cpp in Sources */,
+				2BCD044C26C2A81600ACE2AA /* debug.c in Sources */,
+				2BCD047026C2A83800ACE2AA /* huf_decompress.c in Sources */,
 				2BCD036A26C2A07F00ACE2AA /* ImfFrameBuffer.cpp in Sources */,
+				2BCD046826C2A82C00ACE2AA /* zstd_compress_superblock.c in Sources */,
 				2BCD036F26C2A07F00ACE2AA /* ImfTiledMisc.cpp in Sources */,
 				2BCD039926C2A07F00ACE2AA /* ImfRgbaYca.cpp in Sources */,
+				2BCD046726C2A82C00ACE2AA /* zstd_compress_literals.c in Sources */,
 				2BCD037626C2A07F00ACE2AA /* ImfCRgbaFile.cpp in Sources */,
 				2BCD037726C2A07F00ACE2AA /* ImfDeepTiledOutputPart.cpp in Sources */,
+				2BCD043226C2A7DC00ACE2AA /* adler32.c in Sources */,
+				2BCD044E26C2A81600ACE2AA /* zstd_common.c in Sources */,
 				2BCD03A826C2A07F00ACE2AA /* ImfEnvmap.cpp in Sources */,
 				2BCD039D26C2A07F00ACE2AA /* ImfIO.cpp in Sources */,
 				2BCD038F26C2A07F00ACE2AA /* ImfChannelListAttribute.cpp in Sources */,
 				2BCD03FB26C2A31000ACE2AA /* IexMathFloatExc.cpp in Sources */,
+				2BCD044A26C2A81600ACE2AA /* error_private.c in Sources */,
 				2BCD038A26C2A07F00ACE2AA /* ImfDeepScanLineOutputFile.cpp in Sources */,
 				2BCD039026C2A07F00ACE2AA /* ImfRgbaFile.cpp in Sources */,
 				2BCD038B26C2A07F00ACE2AA /* ImfInputPartData.cpp in Sources */,
+				2BCD045E26C2A82C00ACE2AA /* huf_compress.c in Sources */,
 				2BAF331026A6DC2B002D74A4 /* encode3f.c in Sources */,
 				2BCD03FE26C2A31000ACE2AA /* IexThrowErrnoExc.cpp in Sources */,
 				2BAF32FB26A6DC2B002D74A4 /* bitstream.c in Sources */,
@@ -1138,8 +1287,11 @@
 				2BCD039426C2A07F00ACE2AA /* ImfIntAttribute.cpp in Sources */,
 				2BCD041C26C2A5B000ACE2AA /* IlmThreadSemaphore.cpp in Sources */,
 				2BCD036626C2A07F00ACE2AA /* ImfTileOffsets.cpp in Sources */,
+				2BCD047226C2A83800ACE2AA /* zstd_decompress_block.c in Sources */,
 				2BCD041D26C2A5B000ACE2AA /* IlmThread.cpp in Sources */,
+				2BCD046226C2A82C00ACE2AA /* zstd_compress_sequences.c in Sources */,
 				2BCD036026C2A07F00ACE2AA /* ImfDeepCompositing.cpp in Sources */,
+				2BCD043326C2A7DC00ACE2AA /* crc32.c in Sources */,
 				2BCD03A626C2A07F00ACE2AA /* ImfDeepTiledInputPart.cpp in Sources */,
 				2BAF330F26A6DC2B002D74A4 /* decode3d.c in Sources */,
 				2BCD036226C2A07F00ACE2AA /* ImfDeepTiledOutputFile.cpp in Sources */,

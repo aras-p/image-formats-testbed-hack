@@ -10,7 +10,7 @@
 #include "external/openexr/src/lib/OpenEXR/ImfRgbaFile.h"
 #include "external/openexr/src/lib/OpenEXR/ImfStandardAttributes.h"
 #include "sokol/sokol_time.h"
-#include "xxHash/xxhash.h"
+#include "external/openexr/src/lib/OpenEXR/zstd/common/xxhash.h"
 #ifndef _MSC_VER
 #include <sys/fcntl.h>
 #endif
@@ -145,7 +145,7 @@ static bool TestFile(const char* filePath, int runIndex)
 
     // compute hash of pixel data
     const size_t rawSize = inWidth * inHeight * sizeof(Rgba);
-    const uint64_t inPixelHash = XXH3_64bits(&inPixels[0][0], rawSize);
+    const uint64_t inPixelHash = XXH64(&inPixels[0][0], rawSize, 123);
     
     // test various compression schemes
     for (size_t cmpIndex = 0; cmpIndex < kTestComprCount; ++cmpIndex)
@@ -222,7 +222,7 @@ static bool TestFile(const char* filePath, int runIndex)
             }
         }
         tRead = stm_sec(stm_since(tRead0));
-        const uint64_t gotPixelHash = XXH3_64bits(&gotPixels[0][0], gotWidth * gotHeight * sizeof(Rgba));
+        const uint64_t gotPixelHash = XXH64(&gotPixels[0][0], gotWidth * gotHeight * sizeof(Rgba), 123);
         if (gotPixelHash != inPixelHash)
         {
             printf("ERROR: file did not roundtrip exactly with compression %s\n", kComprTypes[cmp.type].name);
