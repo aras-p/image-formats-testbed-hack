@@ -14,8 +14,36 @@ void TurnOffFileCache(FILE* f)
      */
 }
 
+MyIStream::MyIStream(const char* fileName)
+	: IStream(fileName), _file(0)
+{
+    _file = fopen(fileName, "rb");
+    if (!_file)
+        throw IEX_NAMESPACE::InputExc("Could not open file");
+	TurnOffFileCache(_file);
+}
 
-bool C_IStream::read (char c[/*n*/], int n)
+MyIStream::~MyIStream()
+{
+    fclose(_file);
+}
+
+MyOStream::MyOStream(const char* fileName)
+	: OStream(fileName), _file(0)
+{
+	_file = fopen(fileName, "wb");
+	if (!_file)
+		throw IEX_NAMESPACE::InputExc("Could not write file");
+	TurnOffFileCache(_file);
+}
+
+MyOStream::~MyOStream()
+{
+	fclose(_file);
+}
+
+
+bool MyIStream::read (char c[/*n*/], int n)
 {
     if (n != static_cast<int>(fread (c, 1, n, _file)))
     {
@@ -29,31 +57,31 @@ bool C_IStream::read (char c[/*n*/], int n)
     }
     return feof (_file);
 }
-uint64_t C_IStream::tellg ()
+uint64_t MyIStream::tellg ()
 {
     return ftell (_file);
 }
-void C_IStream::seekg (uint64_t pos)
+void MyIStream::seekg (uint64_t pos)
 {
     clearerr (_file);
     fseek (_file, static_cast<long>(pos), SEEK_SET);
 }
-void C_IStream::clear ()
+void MyIStream::clear ()
 {
     clearerr (_file);
 }
-void C_OStream::write (const char c[/*n*/], int n)
+void MyOStream::write (const char c[/*n*/], int n)
 {
     clearerr (_file);
     if (n != static_cast<int>(fwrite (c, 1, n, _file)))
         //IEX_NAMESPACE::throwErrnoExc();
         throw IEX_NAMESPACE::InputExc ("Failed to write.");
 }
-uint64_t C_OStream::tellp()
+uint64_t MyOStream::tellp()
 {
     return ftell (_file);
 }
-void C_OStream::seekp (uint64_t pos)
+void MyOStream::seekp (uint64_t pos)
 {
     clearerr (_file);
     fseek (_file, static_cast<long>(pos), SEEK_SET);

@@ -20,7 +20,7 @@
 #include "systeminfo.h"
 #include "fileio.h"
 
-const int kRunCount = 4;
+const int kRunCount = 1;
 
 struct CompressorTypeDesc
 {
@@ -127,9 +127,8 @@ static bool TestFile(const char* filePath, int runIndex)
     Array2D<Rgba> inPixels;
     int inWidth = 0, inHeight = 0;
     {
-        FILE* inCFile = fopen(filePath, "rb");
+		MyIStream inStream(filePath);
         {
-            C_IStream inStream(inCFile, filePath);
             RgbaInputFile inFile(inStream);
             const Header& inHeader = inFile.header();
             const ChannelList& channels = inHeader.channels();
@@ -144,7 +143,6 @@ static bool TestFile(const char* filePath, int runIndex)
             inFile.setFrameBuffer(&inPixels[0][0] - dw.min.x - dw.min.y * inWidth, 1, inWidth);
             inFile.readPixels(dw.min.y, dw.max.y);
         }
-        fclose(inCFile);
     }
 
     // compute hash of pixel data
@@ -182,22 +180,22 @@ static bool TestFile(const char* filePath, int runIndex)
                 //    addZstdCompressionLevel(outHeader, cmp.level);
             }
 
-            FILE* outCFile = fopen(outFilePath, "wb");
+			MyOStream outStream(outFilePath);
             {
-                C_OStream outStream(outCFile, outFilePath);
                 RgbaOutputFile outFile(outStream, outHeader);
                 outFile.setFrameBuffer(&inPixels[0][0], 1, inWidth);
                 outFile.writePixels(inHeight);
             }
-            fclose(outCFile);
         }
         tWrite = stm_sec(stm_since(tWrite0));
         size_t outSize = GetFileSize(outFilePath);
         
         // read the file back
+#ifndef _MSC_VER
         int purgeVal = system("purge");
         if (purgeVal != 0)
             printf("WARN: failed to purge\n");
+#endif
         
         Array2D<Rgba> gotPixels;
         int gotWidth = 0, gotHeight = 0;
@@ -214,9 +212,8 @@ static bool TestFile(const char* filePath, int runIndex)
         }
         else
         {
-            FILE* gotCFile = fopen(outFilePath, "rb");
+			MyIStream gotStream(outFilePath);
             {
-                C_IStream gotStream(gotCFile, outFilePath);
                 RgbaInputFile gotFile(gotStream);
                 const auto dw = gotFile.dataWindow();
                 gotWidth = dw.max.x - dw.min.x + 1;
@@ -225,7 +222,6 @@ static bool TestFile(const char* filePath, int runIndex)
                 gotFile.setFrameBuffer(&gotPixels[0][0] - dw.min.x - dw.min.y * gotWidth, 1, gotWidth);
                 gotFile.readPixels(dw.min.y, dw.max.y);
             }
-            fclose(gotCFile);
         }
         tRead = stm_sec(stm_since(tRead0));
         const uint64_t gotPixelHash = XXH3_64bits(&gotPixels[0][0], gotWidth * gotHeight * sizeof(Rgba));
