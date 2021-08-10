@@ -1,0 +1,4 @@
+[submodule "src/external/openexr"]
+	path = src/external/openexr
+	url = https://github.com/aras-p/openexr
+	branch = hacky-tests
