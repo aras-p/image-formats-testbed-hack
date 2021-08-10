@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\fileio.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\sokol\sokol_impl.c" />
     <ClCompile Include="..\..\src\systeminfo.cpp" />
     <ClCompile Include="..\..\src\xxHash\xxhash.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\fileio.h" />
     <ClInclude Include="..\..\src\sokol\sokol_time.h" />
     <ClInclude Include="..\..\src\systeminfo.h" />
     <ClInclude Include="..\..\src\xxHash\xxhash.h" />

@@ -9,6 +9,7 @@
     <ClCompile Include="..\..\src\xxHash\xxhash.c">
       <Filter>xxhash</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\fileio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\systeminfo.h" />
@@ -18,6 +19,7 @@
     <ClInclude Include="..\..\src\xxHash\xxhash.h">
       <Filter>xxhash</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\fileio.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sokol">

@@ -9,7 +9,6 @@
 #include "openexr/include/OpenEXR/ImfChannelList.h"
 #include "openexr/include/OpenEXR/ImfRgbaFile.h"
 #include "openexr/include/OpenEXR/ImfStandardAttributes.h"
-#include "openexr/include/OpenEXR/ImfIO.h"
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
 #include <sys/stat.h>
@@ -19,6 +18,7 @@
 #endif
 #include <thread>
 #include "systeminfo.h"
+#include "fileio.h"
 
 const int kRunCount = 4;
 
@@ -92,99 +92,6 @@ static const CompressorDesc kTestCompr[] =
 };
 constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
 
-
-static void TurnOffFileCache(FILE* f)
-{
-    /*
-     //@TODO: looks like this turns off a whole bunch of caching somwhere in CRT level too, blergh
-    int fd = fileno(f);
-    int err = fcntl(fd, F_NOCACHE, 1);
-    if (err != 0)
-    {
-        throw new std::string("Argh");
-    }
-     */
-}
-
-class C_IStream : public Imf::IStream
-{
-public:
-    C_IStream (FILE *file, const char fileName[])
-    : IStream (fileName), _file (file)
-    {
-        TurnOffFileCache(file);
-    }
-    virtual bool    read (char c[/*n*/], int n);
-    virtual uint64_t    tellg ();
-    virtual void    seekg (uint64_t pos);
-    virtual void    clear ();
-private:
-    FILE *        _file;
-};
-class C_OStream : public Imf::OStream
-{
-public:
-    C_OStream (FILE *file, const char fileName[])
-    : OStream (fileName), _file (file)
-    {
-        TurnOffFileCache(file);
-    }
-    virtual void    write (const char c[/*n*/], int n);
-    virtual uint64_t    tellp ();
-    virtual void    seekp (uint64_t pos);
-private:
-    FILE *        _file;
-};
-bool C_IStream::read (char c[/*n*/], int n)
-{
-    if (n != static_cast<int>(fread (c, 1, n, _file)))
-    {
-        // fread() failed, but the return value does not distinguish
-        // between I/O errors and end of file, so we call ferror() to
-        // determine what happened.
-        //if (ferror (_file))
-        //    IEX_NAMESPACE::throwErrnoExc();
-        //else
-            throw IEX_NAMESPACE::InputExc ("Unexpected end of file.");
-    }
-    return feof (_file);
-}
-uint64_t C_IStream::tellg ()
-{
-    return ftell (_file);
-}
-void C_IStream::seekg (uint64_t pos)
-{
-    clearerr (_file);
-    fseek (_file, static_cast<long>(pos), SEEK_SET);
-}
-void C_IStream::clear ()
-{
-    clearerr (_file);
-}
-void C_OStream::write (const char c[/*n*/], int n)
-{
-    clearerr (_file);
-    if (n != static_cast<int>(fwrite (c, 1, n, _file)))
-        //IEX_NAMESPACE::throwErrnoExc();
-        throw IEX_NAMESPACE::InputExc ("Failed to write.");
-}
-uint64_t C_OStream::tellp()
-{
-    return ftell (_file);
-}
-void C_OStream::seekp (uint64_t pos)
-{
-    clearerr (_file);
-    fseek (_file, static_cast<long>(pos), SEEK_SET);
-}
-
-static size_t GetFileSize(const char* path)
-{
-    struct stat st = {};
-    stat(path, &st);
-    return st.st_size;
-}
 
 static const char* GetPixelType(Imf::PixelType p)
 {
