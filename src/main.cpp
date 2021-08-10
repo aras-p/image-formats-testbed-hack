@@ -5,10 +5,10 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string>
-#include "openexr/include/OpenEXR/ImfArray.h"
-#include "openexr/include/OpenEXR/ImfChannelList.h"
-#include "openexr/include/OpenEXR/ImfRgbaFile.h"
-#include "openexr/include/OpenEXR/ImfStandardAttributes.h"
+#include "external/openexr/src/lib/OpenEXR/ImfArray.h"
+#include "external/openexr/src/lib/OpenEXR/ImfChannelList.h"
+#include "external/openexr/src/lib/OpenEXR/ImfRgbaFile.h"
+#include "external/openexr/src/lib/OpenEXR/ImfStandardAttributes.h"
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
 #ifndef _MSC_VER

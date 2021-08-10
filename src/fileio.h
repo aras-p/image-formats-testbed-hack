@@ -2,7 +2,7 @@
 #define _ITERATOR_DEBUG_LEVEL 0
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include "openexr/include/OpenEXR/ImfIO.h"
+#include "external/openexr/src/lib/OpenEXR/ImfIO.h"
 #ifdef _MSC_VER
 #include <wtypes.h>
 #endif

@@ -2,3 +2,6 @@
 	path = src/external/openexr
 	url = https://github.com/aras-p/openexr
 	branch = hacky-tests
+[submodule "src/external/imath"]
+	path = src/external/imath
+	url = https://github.com/AcademySoftwareFoundation/Imath

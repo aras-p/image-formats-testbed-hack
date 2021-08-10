@@ -1,5 +1,5 @@
 #include "fileio.h"
-#include "openexr/include/OpenEXR/Iex.h"
+#include "external/openexr/src/lib/Iex/Iex.h"
 #include <sys/stat.h>
 #ifdef _MSC_VER
 #include <fileapi.h>
