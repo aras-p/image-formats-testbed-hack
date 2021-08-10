@@ -20,7 +20,7 @@
 #include "systeminfo.h"
 #include "fileio.h"
 
-const int kRunCount = 1;
+const int kRunCount = 2;
 
 struct CompressorTypeDesc
 {
@@ -52,9 +52,9 @@ static const CompressorDesc kTestCompr[] =
 {
     //{ 0, 0 }, // just raw bits read/write
     { 1, 0 }, // None
-    //{ 2, 0 }, // RLE
-    //{ 3, 0 }, // PIZ
-    //{ 4, 0 }, // Zips
+    { 2, 0 }, // RLE
+    { 3, 0 }, // PIZ
+    { 4, 0 }, // Zips
 
     // Zip
 #if 1
@@ -74,7 +74,7 @@ static const CompressorDesc kTestCompr[] =
 #if 1
     //{ 6, -3 },
     //{ 6, -1 },
-    //{ 6, 1 },
+    { 6, 1 },
     //{ 6, 2 },
     //{ 6, 3 }, // default
     //{ 6, 4 },
@@ -176,8 +176,8 @@ static bool TestFile(const char* filePath, int runIndex)
             {
                 if (cmpType == ZIP_COMPRESSION)
                     addZipCompressionLevel(outHeader, cmp.level);
-                //if (cmpType == ZSTD_COMPRESSION)
-                //    addZstdCompressionLevel(outHeader, cmp.level);
+                if (cmpType == ZSTD_COMPRESSION)
+                    addZstdCompressionLevel(outHeader, cmp.level);
             }
 
 			MyOStream outStream(outFilePath);
