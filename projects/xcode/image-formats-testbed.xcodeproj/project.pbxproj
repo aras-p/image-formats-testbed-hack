@@ -35,6 +35,7 @@
 		2BAF336D26AAD3D6002D74A4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336C26AAD3D6002D74A4 /* libz.tbd */; };
 		2BAF337026AAD458002D74A4 /* libOpenEXRUtil-3_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF336F26AAD458002D74A4 /* libOpenEXRUtil-3_1.a */; };
 		2BAF337326AAD547002D74A4 /* libImath-3_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF337226AAD547002D74A4 /* libImath-3_2.a */; };
+		2BCD028026C29D4200ACE2AA /* fileio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD027E26C29D4200ACE2AA /* fileio.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +122,8 @@
 		2BAF336C26AAD3D6002D74A4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2BAF336F26AAD458002D74A4 /* libOpenEXRUtil-3_1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libOpenEXRUtil-3_1.a"; path = "../../src/openexr/lib/libOpenEXRUtil-3_1.a"; sourceTree = "<group>"; };
 		2BAF337226AAD547002D74A4 /* libImath-3_2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libImath-3_2.a"; path = "../../src/openexr/lib/libImath-3_2.a"; sourceTree = "<group>"; };
+		2BCD027E26C29D4200ACE2AA /* fileio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fileio.cpp; sourceTree = "<group>"; };
+		2BCD027F26C29D4200ACE2AA /* fileio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileio.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 		2BAF329B26A6D831002D74A4 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2BCD027E26C29D4200ACE2AA /* fileio.cpp */,
+				2BCD027F26C29D4200ACE2AA /* fileio.h */,
 				2B9D800626BA491C00564F54 /* systeminfo.cpp */,
 				2B9D800726BA491C00564F54 /* systeminfo.h */,
 				2B9D800126B9215000564F54 /* sokol */,
@@ -424,6 +429,7 @@
 				2BAF330F26A6DC2B002D74A4 /* decode3d.c in Sources */,
 				2B9D800826BA491C00564F54 /* systeminfo.cpp in Sources */,
 				2BAF331726A6DC2B002D74A4 /* miniz.c in Sources */,
+				2BCD028026C29D4200ACE2AA /* fileio.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,6 @@
 #include "fileio.h"
 #include "openexr/include/OpenEXR/Iex.h"
+#include <sys/stat.h>
 #ifdef _MSC_VER
 #include <fileapi.h>
 #endif
@@ -17,10 +18,12 @@ void TurnOffFileCache(FILE* f)
      */
 }
 
+#ifdef _MSC_VER
 static int roundUp(int numToRound, int multiple)
 {
 	return (numToRound + multiple - 1) & -multiple;
 }
+#endif
 
 MyIStream::MyIStream(const char* fileName)
 	: IStream(fileName)

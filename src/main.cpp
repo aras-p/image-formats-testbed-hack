@@ -11,9 +11,7 @@
 #include "openexr/include/OpenEXR/ImfStandardAttributes.h"
 #include "sokol/sokol_time.h"
 #include "xxHash/xxhash.h"
-#include <sys/stat.h>
-#ifdef _MSC_VER
-#else
+#ifndef _MSC_VER
 #include <sys/fcntl.h>
 #endif
 #include <thread>
