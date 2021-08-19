@@ -1,5 +1,4 @@
 #pragma once
-#define _ITERATOR_DEBUG_LEVEL 0
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "external/openexr/src/lib/OpenEXR/ImfIO.h"

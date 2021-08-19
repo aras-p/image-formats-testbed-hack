@@ -1,4 +1,3 @@
-#define _ITERATOR_DEBUG_LEVEL 0
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
@@ -486,7 +485,7 @@ int main()
 
         double perfWrite = res.rawSize / (1024.0*1024.0) / res.tWrite;
         double perfRead = res.rawSize / (1024.0*1024.0) / res.tRead;
-        printf("  %6s: %7.1f MB (%4.2fx) W: %6.3f s (%5.0f MB/s) R: %6.3f s (%5.0f MB/s)\n",
+        printf("  %6s: %7.1f MB (%5.3fx) W: %6.3f s (%5.0f MB/s) R: %6.3f s (%5.0f MB/s)\n",
                kComprTypes[cmp.type].name,
                res.cmpSize/1024.0/1024.0,
                (double)res.rawSize/(double)res.cmpSize,
