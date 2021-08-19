@@ -8,3 +8,6 @@
 [submodule "src/external/zlib"]
 	path = src/external/zlib
 	url = https://github.com/madler/zlib
+[submodule "src/external/zfp"]
+	path = src/external/zfp
+	url = https://github.com/LLNL/zfp

@@ -469,6 +469,111 @@
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\x86\cpu_features.c">
       <Filter>external\libdeflate</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\bitstream.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode1d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode1f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode1i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode1l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode2d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode2f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode2i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode2l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode3d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode3f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode3i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode3l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode4d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode4f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode4i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode4l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode1d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode1f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode1i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode1l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode2d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode2f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode2i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode2l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode3d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode3f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode3i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode3l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode4d.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode4f.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode4i.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode4l.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\zfp.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZfpCompressor.cpp">
+      <Filter>external\openexr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\systeminfo.h" />
@@ -1133,6 +1238,39 @@
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\libdeflate\lib\zlib_constants.h">
       <Filter>external\libdeflate</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\include\bitstream.h">
+      <Filter>external\zfp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\include\zfp.h">
+      <Filter>external\zfp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\block1.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\block2.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\block3.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\block4.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\traitsd.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\traitsf.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\traitsi.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\traitsl.h">
+      <Filter>external\zfp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZfpCompressor.h">
+      <Filter>external\openexr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="sokol">
@@ -1155,6 +1293,15 @@
     </Filter>
     <Filter Include="external\libdeflate">
       <UniqueIdentifier>{785f14c3-6ac4-4174-9b3b-8638b91893c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\zfp">
+      <UniqueIdentifier>{9289e60e-b018-41e4-8106-3a0a593cc389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\zfp\include">
+      <UniqueIdentifier>{065c2937-5c47-425a-9e9e-c291fa9f4da4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\zfp\src">
+      <UniqueIdentifier>{294d19c7-4673-407d-8cd7-3954115a02be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

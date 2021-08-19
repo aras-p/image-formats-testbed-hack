@@ -124,6 +124,7 @@
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVecAttribute.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVersion.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfWav.cpp" />
+    <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZfpCompressor.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.cpp" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.cpp" />
@@ -172,6 +173,40 @@
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_ddict.c" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress.c" />
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_block.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\bitstream.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode1d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode1f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode1i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode1l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode2d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode2f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode2i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode2l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode3d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode3f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode3i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode3l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode4d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode4f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode4i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode4l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode1d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode1f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode1i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode1l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode2d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode2f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode2i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode2l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode3d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode3f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode3i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode3l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode4d.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode4f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode4i.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode4l.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\zfp.c" />
     <ClCompile Include="..\..\src\external\zlib\adler32.c" />
     <ClCompile Include="..\..\src\external\zlib\compress.c" />
     <ClCompile Include="..\..\src\external\zlib\crc32.c" />
@@ -358,6 +393,7 @@
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfVersion.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfWav.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfXdr.h" />
+    <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZfpCompressor.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZip.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZipCompressor.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZstdCompressor.h" />
@@ -406,6 +442,16 @@
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_block.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\decompress\zstd_decompress_internal.h" />
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\zstd\zstd.h" />
+    <ClInclude Include="..\..\src\external\zfp\include\bitstream.h" />
+    <ClInclude Include="..\..\src\external\zfp\include\zfp.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\block1.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\block2.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\block3.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\block4.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\traitsd.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\traitsf.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\traitsi.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\traitsl.h" />
     <ClInclude Include="..\..\src\external\zlib\zconf.h" />
     <ClInclude Include="..\..\src\external\zlib\zlib.h" />
     <ClInclude Include="..\..\src\fileio.h" />
@@ -490,7 +536,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib;../../src/external/zfp/include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -507,7 +553,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib;../../src/external/zfp/include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -524,7 +570,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib;../../src/external/zfp/include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -541,7 +587,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../src/external/Imath/src/Imath;../../src/external;../../src/external/openexr/src/lib/Iex;../../src/external/openexr/src/lib/OpenEXR;../../src/external/openexr/src/lib/IlmThread;../../src/external/zlib;../../src/external/zfp/include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
