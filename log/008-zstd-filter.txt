@@ -1,0 +1,28 @@
+Initial current filter: compression ratio 2.463x, 906MB/s, 997MB/s
+Try ClampedGradPredictor from http://cbloomrants.blogspot.com/2010/06/06-20-10-filters-for-png-alike.html:
+     2.046x ratio :(
+Split into lo-stream and hi-stream: 2.347x
+Just a simple "prev value" predictor: 2.463x
+A "W" predictor (i.e. previous pixel value): 2.276x (?)
+ClampedGrad, each pixel split into per-byte streams (8 streams) USE_STREAM_PER_BYTE + ClampedGrad: 2.209x. Same with W predictor: 2.105x.
+
+
+Instead of working on bytes, work on 16-bit integers, splitting resulting delta into lo+hi streams:
+W predictor: 2.227x
+ClampedGrad: 2.312x
+N predictor: 2.323x
+
+Oh shit, turns out EXR stores each scanline as like AAAAA BBBBB GGGGG RRRRR, so my predictor indexing of previous pixels was all wrong.
+Working on 16-bit integer deltas, split result into lo+hi streams:
+- W predictor: 2.402x
+- N predictor: 2.323x
+- ClampedGrad: 2.425x
+- ClampedGrad, but don't split delta into lo+hi: 2.189x
+
+Working on bytes, split lo+hi into separate streams:
+- W predictor: 2.463x (current exr)
+- ClampedGrad: 2.472x
+
+Testing several Zstd compression levels: 1, 3, 8:
+- Current filter: 2.463, 2.446, 2.489
+- ClampedGrad:    2.472, 2.451, 2.493
