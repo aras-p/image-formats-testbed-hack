@@ -10,4 +10,6 @@
 	url = https://github.com/madler/zlib
 [submodule "src/external/zfp"]
 	path = src/external/zfp
-	url = https://github.com/LLNL/zfp
+	url = https://github.com/aras-p/zfp
+	branch = fp16-hack
+

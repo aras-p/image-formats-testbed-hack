@@ -1,0 +1,16 @@
+Initial simple lossless ZFP, with converting all inputs into floats:
+==== Summary (18 files, 2 runs), PC:
+    None:  1057.8 MB (1.000x) W:  1.238 s (  854 MB/s) R:  1.001 s ( 1056 MB/s)
+     PIZ:   433.0 MB (2.442x) W:  2.124 s (  498 MB/s) R:  1.336 s (  791 MB/s)
+     Zip:   435.7 MB (2.427x) W:  1.832 s (  577 MB/s) R:  1.076 s (  982 MB/s)
+    Zstd:   429.2 MB (2.463x) W:  1.195 s (  885 MB/s) R:  1.064 s (  994 MB/s)
+     ZFP:   582.7 MB (1.814x) W:  1.805 s (  586 MB/s) R:  1.534 s (  689 MB/s)
+
+ZFP + Zstd:
+==== Summary (18 files, 2 runs):
+    None:  1057.8 MB (1.000x) W:  1.236 s (  856 MB/s) R:  0.930 s ( 1137 MB/s)
+     PIZ:   433.0 MB (2.442x) W:  2.077 s (  509 MB/s) R:  1.313 s (  805 MB/s)
+     Zip:   435.7 MB (2.427x) W:  1.828 s (  578 MB/s) R:  1.076 s (  982 MB/s)
+    Zstd:   429.2 MB (2.463x) W:  1.106 s (  956 MB/s) R:  1.067 s (  991 MB/s)
+     ZFP:   553.4 MB (1.911x) W:  2.104 s (  503 MB/s) R:  1.707 s (  619 MB/s)
+     

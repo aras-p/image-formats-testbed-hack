@@ -35,7 +35,8 @@ static const CompressorTypeDesc kComprTypes[] =
     {"PIZ",     Imf::PIZ_COMPRESSION,           "ff9a44", 0}, // 3, orange
     {"Zips",    Imf::ZIPS_COMPRESSION,          "046f0e", 0}, // 4, dark green
     {"Zip",     Imf::ZIP_COMPRESSION,           "12b520", 0}, // 5, green
-    {"Zstd",    Imf::ZSTD_COMPRESSION,          "0094ef", 1}, // 6, blue
+    {"Zstd",    Imf::ZSTD_COMPRESSION,          "0094ef", 0}, // 6, blue
+	{"ZFP",     Imf::ZFP_COMPRESSION,           "e00000", 1}, // 7, red
 };
 constexpr size_t kComprTypeCount = sizeof(kComprTypes) / sizeof(kComprTypes[0]);
 
@@ -49,9 +50,9 @@ static const CompressorDesc kTestCompr[] =
 {
     //{ 0, 0 }, // just raw bits read/write
     { 1, 0 }, // None
-    { 2, 0 }, // RLE
+    //{ 2, 0 }, // RLE
     { 3, 0 }, // PIZ
-    { 4, 0 }, // Zips
+    //{ 4, 0 }, // Zips
 
     // Zip
 #if 1
@@ -61,7 +62,7 @@ static const CompressorDesc kTestCompr[] =
     //{ 5, 3 },
     { 5, 4 },
     //{ 5, 5 },
-    { 5, 6 }, // default
+    //{ 5, 6 }, // default
     //{ 5, 7 },
     //{ 5, 8 },
     //{ 5, 9 },
@@ -85,6 +86,11 @@ static const CompressorDesc kTestCompr[] =
     //{ 6, 18 },
     //{ 6, 20 },
     //{ 6, 22 },
+#endif
+
+    // ZFP
+#if 1
+	{ 7, 0 },
 #endif
 };
 constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
