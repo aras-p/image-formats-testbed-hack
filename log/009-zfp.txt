@@ -29,4 +29,11 @@ ZFP lossless with FP16, but without additional Zstd:
      Zip:   435.7 MB (2.427x) W:  1.772 s (  597 MB/s) R:  1.002 s ( 1055 MB/s)
     Zstd:   429.2 MB (2.463x) W:  1.132 s (  934 MB/s) R:  0.988 s ( 1070 MB/s)
      ZFP:   554.5 MB (1.907x) W:  1.009 s ( 1048 MB/s) R:  1.002 s ( 1055 MB/s)
-     
+
+ZFP lossless with FP16, but without additional Zstd, on Mac:
+==== Summary (18 files, 2 runs):
+    None:  1057.8 MB (1.000x) W:  2.594 s (  408 MB/s) R:  0.686 s ( 1542 MB/s)
+     PIZ:   433.0 MB (2.442x) W:  1.814 s (  583 MB/s) R:  0.929 s ( 1138 MB/s)
+     Zip:   435.7 MB (2.427x) W:  1.719 s (  615 MB/s) R:  0.575 s ( 1840 MB/s)
+    Zstd:   429.2 MB (2.463x) W:  1.342 s (  788 MB/s) R:  0.696 s ( 1518 MB/s)
+     ZFP:   554.5 MB (1.907x) W:  2.044 s (  517 MB/s) R:  1.295 s (  817 MB/s)
