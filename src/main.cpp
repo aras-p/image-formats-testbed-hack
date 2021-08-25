@@ -405,7 +405,9 @@ chr.draw(dr, options);
 int main()
 {
     unsigned nThreads = std::thread::hardware_concurrency();
-    //nThreads = 0;
+#ifdef _DEBUG
+    nThreads = 0;
+#endif
     printf("Setting OpenEXR to %i threads\n", nThreads);
     Imf::setGlobalThreadCount(nThreads);
     stm_setup();

@@ -21,3 +21,12 @@ Try adding native FP16 compression to ZFP: still with Zstd:
      Zip:   435.7 MB (2.427x) W:  1.776 s (  595 MB/s) R:  1.047 s ( 1010 MB/s)
     Zstd:   429.2 MB (2.463x) W:  1.135 s (  932 MB/s) R:  1.043 s ( 1013 MB/s)
      ZFP:   527.9 MB (2.003x) W:  1.206 s (  877 MB/s) R:  1.144 s (  924 MB/s)
+
+ZFP lossless with FP16, but without additional Zstd:
+==== Summary (18 files, 2 runs):
+    None:  1057.8 MB (1.000x) W:  1.122 s (  943 MB/s) R:  0.945 s ( 1119 MB/s)
+     PIZ:   433.0 MB (2.442x) W:  2.006 s (  527 MB/s) R:  1.257 s (  841 MB/s)
+     Zip:   435.7 MB (2.427x) W:  1.772 s (  597 MB/s) R:  1.002 s ( 1055 MB/s)
+    Zstd:   429.2 MB (2.463x) W:  1.132 s (  934 MB/s) R:  0.988 s ( 1070 MB/s)
+     ZFP:   554.5 MB (1.907x) W:  1.009 s ( 1048 MB/s) R:  1.002 s ( 1055 MB/s)
+     
