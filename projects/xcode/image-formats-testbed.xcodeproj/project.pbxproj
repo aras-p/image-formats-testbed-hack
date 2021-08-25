@@ -77,6 +77,8 @@
 		2B2217DF26CFEF64006EF138 /* zlib_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B2217D626CFEF64006EF138 /* zlib_decompress.c */; };
 		2B2217E226CFEF78006EF138 /* cpu_features.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B2217E126CFEF78006EF138 /* cpu_features.c */; };
 		2B2217E626CFEF8A006EF138 /* ImfZfpCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2217E426CFEF8A006EF138 /* ImfZfpCompressor.cpp */; };
+		2B235AF526D6673C003A9258 /* encode2h.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B235AF226D6673C003A9258 /* encode2h.c */; };
+		2B235AF626D6673C003A9258 /* decode2h.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B235AF426D6673C003A9258 /* decode2h.c */; };
 		2B9D800426B9217200564F54 /* sokol_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D800226B9217200564F54 /* sokol_impl.c */; };
 		2B9D800826BA491C00564F54 /* systeminfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B9D800626BA491C00564F54 /* systeminfo.cpp */; };
 		2BAF32A626A6D875002D74A4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF32A526A6D875002D74A4 /* main.cpp */; };
@@ -290,6 +292,9 @@
 		2B2217E126CFEF78006EF138 /* cpu_features.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu_features.c; path = src/lib/OpenEXR/libdeflate/lib/x86/cpu_features.c; sourceTree = "<group>"; };
 		2B2217E426CFEF8A006EF138 /* ImfZfpCompressor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImfZfpCompressor.cpp; path = src/lib/OpenEXR/ImfZfpCompressor.cpp; sourceTree = "<group>"; };
 		2B2217E526CFEF8A006EF138 /* ImfZfpCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImfZfpCompressor.h; path = src/lib/OpenEXR/ImfZfpCompressor.h; sourceTree = "<group>"; };
+		2B235AF226D6673C003A9258 /* encode2h.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode2h.c; sourceTree = "<group>"; };
+		2B235AF326D6673C003A9258 /* traitsh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = traitsh.h; sourceTree = "<group>"; };
+		2B235AF426D6673C003A9258 /* decode2h.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decode2h.c; sourceTree = "<group>"; };
 		2B9D800226B9217200564F54 /* sokol_impl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sokol_impl.c; sourceTree = "<group>"; };
 		2B9D800326B9217200564F54 /* sokol_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sokol_time.h; sourceTree = "<group>"; };
 		2B9D800626BA491C00564F54 /* systeminfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = systeminfo.cpp; sourceTree = "<group>"; };
@@ -629,6 +634,9 @@
 		2B2216D526CFED8C006EF138 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2B235AF426D6673C003A9258 /* decode2h.c */,
+				2B235AF226D6673C003A9258 /* encode2h.c */,
+				2B235AF326D6673C003A9258 /* traitsh.h */,
 				2B2216D626CFED8C006EF138 /* decode4f.c */,
 				2B2216D726CFED8C006EF138 /* traitsd.h */,
 				2B2216D826CFED8C006EF138 /* decode4l.c */,
@@ -1179,6 +1187,7 @@
 				2BCD03AF26C2A07F00ACE2AA /* ImfTiledRgbaFile.cpp in Sources */,
 				2BCD039626C2A07F00ACE2AA /* ImfRationalAttribute.cpp in Sources */,
 				2BCD037326C2A07F00ACE2AA /* ImfEnvmapAttribute.cpp in Sources */,
+				2B235AF526D6673C003A9258 /* encode2h.c in Sources */,
 				2BCD03A926C2A07F00ACE2AA /* ImfMultiView.cpp in Sources */,
 				2BCD03A426C2A07F00ACE2AA /* ImfDeepScanLineInputPart.cpp in Sources */,
 				2BCD038726C2A07F00ACE2AA /* ImfAcesFile.cpp in Sources */,
@@ -1228,6 +1237,7 @@
 				2B9D800426B9217200564F54 /* sokol_impl.c in Sources */,
 				2BCD037826C2A07F00ACE2AA /* ImfWav.cpp in Sources */,
 				2BCD035626C2A07F00ACE2AA /* ImfBoxAttribute.cpp in Sources */,
+				2B235AF626D6673C003A9258 /* decode2h.c in Sources */,
 				2BCD036426C2A07F00ACE2AA /* ImfOutputPart.cpp in Sources */,
 				2BCD039A26C2A07F00ACE2AA /* ImfTiledInputPart.cpp in Sources */,
 				2B22177E26CFED8D006EF138 /* encode1i.c in Sources */,
