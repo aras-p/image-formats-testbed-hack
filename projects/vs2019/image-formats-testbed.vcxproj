@@ -180,6 +180,7 @@
     <ClCompile Include="..\..\src\external\zfp\src\decode1l.c" />
     <ClCompile Include="..\..\src\external\zfp\src\decode2d.c" />
     <ClCompile Include="..\..\src\external\zfp\src\decode2f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\decode2h.c" />
     <ClCompile Include="..\..\src\external\zfp\src\decode2i.c" />
     <ClCompile Include="..\..\src\external\zfp\src\decode2l.c" />
     <ClCompile Include="..\..\src\external\zfp\src\decode3d.c" />
@@ -196,6 +197,7 @@
     <ClCompile Include="..\..\src\external\zfp\src\encode1l.c" />
     <ClCompile Include="..\..\src\external\zfp\src\encode2d.c" />
     <ClCompile Include="..\..\src\external\zfp\src\encode2f.c" />
+    <ClCompile Include="..\..\src\external\zfp\src\encode2h.c" />
     <ClCompile Include="..\..\src\external\zfp\src\encode2i.c" />
     <ClCompile Include="..\..\src\external\zfp\src\encode2l.c" />
     <ClCompile Include="..\..\src\external\zfp\src\encode3d.c" />
@@ -450,6 +452,7 @@
     <ClInclude Include="..\..\src\external\zfp\src\block4.h" />
     <ClInclude Include="..\..\src\external\zfp\src\traitsd.h" />
     <ClInclude Include="..\..\src\external\zfp\src\traitsf.h" />
+    <ClInclude Include="..\..\src\external\zfp\src\traitsh.h" />
     <ClInclude Include="..\..\src\external\zfp\src\traitsi.h" />
     <ClInclude Include="..\..\src\external\zfp\src\traitsl.h" />
     <ClInclude Include="..\..\src\external\zlib\zconf.h" />

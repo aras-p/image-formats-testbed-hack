@@ -13,4 +13,11 @@ ZFP + Zstd:
      Zip:   435.7 MB (2.427x) W:  1.828 s (  578 MB/s) R:  1.076 s (  982 MB/s)
     Zstd:   429.2 MB (2.463x) W:  1.106 s (  956 MB/s) R:  1.067 s (  991 MB/s)
      ZFP:   553.4 MB (1.911x) W:  2.104 s (  503 MB/s) R:  1.707 s (  619 MB/s)
-     
+
+Try adding native FP16 compression to ZFP: still with Zstd:
+==== Summary (18 files, 2 runs):
+    None:  1057.8 MB (1.000x) W:  1.203 s (  879 MB/s) R:  0.960 s ( 1102 MB/s)
+     PIZ:   433.0 MB (2.442x) W:  2.012 s (  526 MB/s) R:  1.310 s (  807 MB/s)
+     Zip:   435.7 MB (2.427x) W:  1.776 s (  595 MB/s) R:  1.047 s ( 1010 MB/s)
+    Zstd:   429.2 MB (2.463x) W:  1.135 s (  932 MB/s) R:  1.043 s ( 1013 MB/s)
+     ZFP:   527.9 MB (2.003x) W:  1.206 s (  877 MB/s) R:  1.144 s (  924 MB/s)

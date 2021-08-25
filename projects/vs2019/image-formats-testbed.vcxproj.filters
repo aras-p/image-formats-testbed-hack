@@ -574,6 +574,12 @@
     <ClCompile Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZfpCompressor.cpp">
       <Filter>external\openexr</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\decode2h.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\external\zfp\src\encode2h.c">
+      <Filter>external\zfp\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\systeminfo.h" />
@@ -1270,6 +1276,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\external\openexr\src\lib\OpenEXR\ImfZfpCompressor.h">
       <Filter>external\openexr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\external\zfp\src\traitsh.h">
+      <Filter>external\zfp\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
