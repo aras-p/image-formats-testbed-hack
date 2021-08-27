@@ -17,7 +17,7 @@
 #include "systeminfo.h"
 #include "fileio.h"
 
-const int kRunCount = 2;
+const int kRunCount = 4;
 
 struct CompressorTypeDesc
 {
@@ -36,7 +36,7 @@ static const CompressorTypeDesc kComprTypes[] =
     {"Zips",    Imf::ZIPS_COMPRESSION,          "046f0e", 0}, // 4, dark green
     {"Zip",     Imf::ZIP_COMPRESSION,           "12b520", 0}, // 5, green
     {"Zstd",    Imf::ZSTD_COMPRESSION,          "0094ef", 0}, // 6, blue
-	{"ZFP",     Imf::ZFP_COMPRESSION,           "e00000", 1}, // 7, red
+	{"ZFP",     Imf::ZFP_COMPRESSION,           "e01010", 1}, // 7, red
 };
 constexpr size_t kComprTypeCount = sizeof(kComprTypes) / sizeof(kComprTypes[0]);
 
@@ -50,7 +50,7 @@ static const CompressorDesc kTestCompr[] =
 {
     //{ 0, 0 }, // just raw bits read/write
     { 1, 0 }, // None
-    //{ 2, 0 }, // RLE
+    { 2, 0 }, // RLE
     { 3, 0 }, // PIZ
     //{ 4, 0 }, // Zips
 
@@ -90,7 +90,10 @@ static const CompressorDesc kTestCompr[] =
 
     // ZFP
 #if 1
-	{ 7, 0 },
+	{ 7, 0x0 }, // FP16
+    { 7, 0x1 }, // FP32
+    { 7, 0x2 }, // FP16+Zstd
+    { 7, 0x3 }, // FP32+Zstd
 #endif
 };
 constexpr size_t kTestComprCount = sizeof(kTestCompr) / sizeof(kTestCompr[0]);
@@ -181,6 +184,8 @@ static bool TestFile(const char* filePath, int runIndex)
                     addZipCompressionLevel(outHeader, cmp.level);
                 if (cmpType == ZSTD_COMPRESSION)
                     addZstdCompressionLevel(outHeader, cmp.level);
+                if (cmpType == ZFP_COMPRESSION)
+                    addZfpCompressionMode(outHeader, cmp.level);
             }
 
 			MyOStream outStream(outFilePath);
